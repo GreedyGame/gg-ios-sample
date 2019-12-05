@@ -20,14 +20,27 @@ class DetailViewController: UIViewController {
     var place  = ""
     var location = ""
     var image = ""
+    var isGGCampaigAvailable = false
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         place = place.replacingOccurrences(of: "\n", with: "")
         placelbl.text = place
         locationlbl.text = location
         placeImageView.image = UIImage(named: image)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        switch appdelegate.campaignState{
+        case .Available:
+            isGGCampaigAvailable = true
+            update()
+        case .UnAvailable:
+            isGGCampaigAvailable = false
+            update()
+        }
     }
     
 
@@ -35,17 +48,21 @@ class DetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func templateBtnAction(_ sender: UIButton) {
+        appdelegate.openGGEngageMentWindow(forunitID: "float-4352")
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   
+    /// Helper method to updat the template
+    private func update(){
+        if isGGCampaigAvailable{
+            guard let image = appdelegate.getImageFromPath(forunitID: "float-4352") else{
+                placeDetailTemplate_imageView.image = UIImage(named: "")
+                return
+            }
+            placeDetailTemplate_imageView.image = image
+        }else{
+            placeDetailTemplate_imageView.image = UIImage(named: "")
+        }
     }
-    */
-
 }

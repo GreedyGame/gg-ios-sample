@@ -35,7 +35,34 @@
 		188C51092397B07D00D27623 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 188C51032397B07D00D27623 /* SIL Open Font License.txt */; };
 		188C510B2397B60200D27623 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C510A2397B60200D27623 /* Constants.swift */; };
 		188C510D2397C9F100D27623 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C510C2397C9F100D27623 /* DetailViewController.swift */; };
+		18B7145C2398B9FB0096DABC /* imageprocessing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B714592398B9F90096DABC /* imageprocessing.framework */; };
+		18B7145D2398B9FB0096DABC /* greedygame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B7145A2398B9FB0096DABC /* greedygame.framework */; };
+		18B7145F2398BA0B0096DABC /* commons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B7145B2398B9FB0096DABC /* commons.framework */; };
+		18B714602398BA0B0096DABC /* commons.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18B7145B2398B9FB0096DABC /* commons.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18B714622398BA0B0096DABC /* greedygame.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18B7145A2398B9FB0096DABC /* greedygame.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18B714642398BA0B0096DABC /* imageprocessing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18B714592398B9F90096DABC /* imageprocessing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18B714682398D9F90096DABC /* IntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B714662398D9F90096DABC /* IntroCell.swift */; };
+		18B714692398D9FA0096DABC /* IntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B714672398D9F90096DABC /* IntroCell.xib */; };
+		18B7146B2398DBAD0096DABC /* GG_ 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B7146A2398DBAC0096DABC /* GG_ 1.png */; };
+		18B7146D2398DBCF0096DABC /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7146C2398DBCF0096DABC /* IntroViewController.swift */; };
+		18B7146F239900D90096DABC /* GGCampaignDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7146E239900D90096DABC /* GGCampaignDelegate.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18B714652398BA0C0096DABC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18B714622398BA0B0096DABC /* greedygame.framework in Embed Frameworks */,
+				18B714602398BA0B0096DABC /* commons.framework in Embed Frameworks */,
+				18B714642398BA0B0096DABC /* imageprocessing.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		188C50C8239792A700D27623 /* GreedyGamesSampleSDK8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreedyGamesSampleSDK8.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +95,14 @@
 		188C51032397B07D00D27623 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
 		188C510A2397B60200D27623 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		188C510C2397C9F100D27623 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		18B714592398B9F90096DABC /* imageprocessing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = imageprocessing.framework; sourceTree = "<group>"; };
+		18B7145A2398B9FB0096DABC /* greedygame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = greedygame.framework; sourceTree = "<group>"; };
+		18B7145B2398B9FB0096DABC /* commons.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = commons.framework; sourceTree = "<group>"; };
+		18B714662398D9F90096DABC /* IntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCell.swift; sourceTree = "<group>"; };
+		18B714672398D9F90096DABC /* IntroCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCell.xib; sourceTree = "<group>"; };
+		18B7146A2398DBAC0096DABC /* GG_ 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GG_ 1.png"; sourceTree = "<group>"; };
+		18B7146C2398DBCF0096DABC /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		18B7146E239900D90096DABC /* GGCampaignDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCampaignDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B7145F2398BA0B0096DABC /* commons.framework in Frameworks */,
+				18B7145D2398B9FB0096DABC /* greedygame.framework in Frameworks */,
+				18B7145C2398B9FB0096DABC /* imageprocessing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +141,14 @@
 				188C50FD2397B06300D27623 /* Font */,
 				188C50F2239798AB00D27623 /* CustomCell */,
 				188C50DD239792B200D27623 /* Images */,
+				18B7145B2398B9FB0096DABC /* commons.framework */,
+				18B7145A2398B9FB0096DABC /* greedygame.framework */,
+				18B714592398B9F90096DABC /* imageprocessing.framework */,
 				188C50CB239792A700D27623 /* AppDelegate.swift */,
 				188C50FB2397ABC200D27623 /* ViewFile 2.swift */,
+				18B7146C2398DBCF0096DABC /* IntroViewController.swift */,
 				188C50CD239792A700D27623 /* ViewController.swift */,
+				18B7146E239900D90096DABC /* GGCampaignDelegate.swift */,
 				188C510C2397C9F100D27623 /* DetailViewController.swift */,
 				188C50CF239792A700D27623 /* Main.storyboard */,
 				188C50D2239792AB00D27623 /* Assets.xcassets */,
@@ -119,6 +162,7 @@
 		188C50DD239792B200D27623 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				18B7146A2398DBAC0096DABC /* GG_ 1.png */,
 				188C50E7239792C000D27623 /* 1.png */,
 				188C50E4239792BF00D27623 /* 2.png */,
 				188C50E3239792BF00D27623 /* 3.png */,
@@ -140,6 +184,8 @@
 				188C50F4239798D600D27623 /* DiscoverCell.xib */,
 				188C50F7239798EF00D27623 /* PlacesCell.swift */,
 				188C50F8239798EF00D27623 /* PlacesCell.xib */,
+				18B714662398D9F90096DABC /* IntroCell.swift */,
+				18B714672398D9F90096DABC /* IntroCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -167,6 +213,7 @@
 				188C50C4239792A700D27623 /* Sources */,
 				188C50C5239792A700D27623 /* Frameworks */,
 				188C50C6239792A700D27623 /* Resources */,
+				18B714652398BA0C0096DABC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,9 +267,11 @@
 				188C50E9239792C000D27623 /* s1.png in Resources */,
 				188C50F6239798D600D27623 /* DiscoverCell.xib in Resources */,
 				188C50FA239798EF00D27623 /* PlacesCell.xib in Resources */,
+				18B7146B2398DBAD0096DABC /* GG_ 1.png in Resources */,
 				188C50EE239792C000D27623 /* 2.png in Resources */,
 				188C51072397B07D00D27623 /* Poppins-SemiBold.ttf in Resources */,
 				188C50E8239792C000D27623 /* s4.png in Resources */,
+				18B714692398D9FA0096DABC /* IntroCell.xib in Resources */,
 				188C50ED239792C000D27623 /* 3.png in Resources */,
 				188C50F1239792C000D27623 /* 1.png in Resources */,
 				188C50D6239792AB00D27623 /* LaunchScreen.storyboard in Resources */,
@@ -246,12 +295,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B7146D2398DBCF0096DABC /* IntroViewController.swift in Sources */,
 				188C50CE239792A700D27623 /* ViewController.swift in Sources */,
 				188C50FC2397ABC200D27623 /* ViewFile 2.swift in Sources */,
 				188C50F5239798D600D27623 /* DiscoverCell.swift in Sources */,
 				188C50CC239792A700D27623 /* AppDelegate.swift in Sources */,
 				188C50F9239798EF00D27623 /* PlacesCell.swift in Sources */,
+				18B7146F239900D90096DABC /* GGCampaignDelegate.swift in Sources */,
 				188C510B2397B60200D27623 /* Constants.swift in Sources */,
+				18B714682398D9F90096DABC /* IntroCell.swift in Sources */,
 				188C510D2397C9F100D27623 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,12 +452,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 62PUPAYL2W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GreedyGamesSampleSDK8",
+				);
 				INFOPLIST_FILE = GreedyGamesSampleSDK8/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greedygame.GreedyGamesSampleSDK8;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greedygame.SDK8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -418,12 +474,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 62PUPAYL2W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GreedyGamesSampleSDK8",
+				);
 				INFOPLIST_FILE = GreedyGamesSampleSDK8/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.greedygame.GreedyGamesSampleSDK8;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greedygame.SDK8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

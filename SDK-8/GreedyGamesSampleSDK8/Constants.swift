@@ -12,6 +12,5 @@ class Constants{
     
     static let DISCOVER_CELL = "discover_cell"
     static let PLACE_CELL = "place_cell"
-    static let DETAIL_VC_SEGUE = "detail_vc_segue"
-    
+    static let INTRO_CELL = "intro_cell"
 }

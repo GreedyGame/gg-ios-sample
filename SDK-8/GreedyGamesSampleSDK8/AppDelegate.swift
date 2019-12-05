@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import greedygame
+
+enum state{
+    case Available
+    case UnAvailable
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    var greedyAgent: GreedyGameAgent?
+    var ggDelegate : GGCampaignDelegate?
+    var campaignState : state = .Available
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        loadSDK()
         return true
     }
 
@@ -44,3 +54,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate : CampaignStateListener{
+    
+    private func loadSDK(){
+        greedyAgent = GreedyGameAgent.Builder()
+                        .setGameId("39254904")
+                        .setUnits(units: ["float-4349","float-4350","float-4351","float-4352","float-4353","float-4354"])
+                        .enableAdmob(true)
+                        .stateListener(self)
+                        .build()
+        greedyAgent?.initialize()
+    }
+    
+    func onAvailable(campaignId: String) {
+        print("[GG]Campaign Available : \(campaignId)")
+//        ggDelegate?.GGAvailable()
+        campaignState = .Available
+    }
+    
+    func onUnavailable() {
+        print("[GG]Campaign Unavailable")
+//        ggDelegate?.GGUnAvailable()
+        campaignState = .UnAvailable
+    }
+    
+    func onError(error: String) {
+        print("[GG]Error : \(error)")
+//        ggDelegate?.GGUnAvailable()
+        campaignState = .UnAvailable
+
+    }
+    
+    func openGGEngageMentWindow(forunitID id:String){
+        self.greedyAgent?.showUII(unitId: id)
+    }
+    
+    func getImageFromPath(forunitID id:String) -> UIImage?{
+        guard let imagePath = self.greedyAgent?.getPath(unitId: id),let image = UIImage(contentsOfFile: imagePath) else{
+            return nil
+        }
+        
+        return image
+    }
+
+}
