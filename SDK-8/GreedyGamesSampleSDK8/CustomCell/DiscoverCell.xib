@@ -27,10 +27,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="330" height="405"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEK-iJ-Sxu">
+                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="KEK-iJ-Sxu">
                         <rect key="frame" x="0.0" y="0.0" width="330" height="405"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ytc-Ug-QZJ">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="700" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ytc-Ug-QZJ">
                                 <rect key="frame" x="0.0" y="0.0" width="330" height="405"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

@@ -9,7 +9,7 @@
 import UIKit
 import greedygame
 
-enum state{
+enum State{
     case Available
     case UnAvailable
 }
@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var greedyAgent: GreedyGameAgent?
     var ggDelegate : GGCampaignDelegate?
-    var campaignState : state = .Available
+    var campaignState : State = .Available
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -51,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
 
 extension AppDelegate : CampaignStateListener{
@@ -68,21 +68,17 @@ extension AppDelegate : CampaignStateListener{
     
     func onAvailable(campaignId: String) {
         print("[GG]Campaign Available : \(campaignId)")
-//        ggDelegate?.GGAvailable()
-        campaignState = .Available
+        Prepare.sharedInstance().addAdData()
     }
     
     func onUnavailable() {
         print("[GG]Campaign Unavailable")
-//        ggDelegate?.GGUnAvailable()
-        campaignState = .UnAvailable
+        Prepare.sharedInstance().removeAdData()
     }
     
     func onError(error: String) {
         print("[GG]Error : \(error)")
-//        ggDelegate?.GGUnAvailable()
-        campaignState = .UnAvailable
-
+        Prepare.sharedInstance().removeAdData()
     }
     
     func openGGEngageMentWindow(forunitID id:String){

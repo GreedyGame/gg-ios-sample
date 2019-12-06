@@ -13,4 +13,5 @@ class Constants{
     static let DISCOVER_CELL = "discover_cell"
     static let PLACE_CELL = "place_cell"
     static let INTRO_CELL = "intro_cell"
+    static let AD_CELL = "ad_cell"
 }

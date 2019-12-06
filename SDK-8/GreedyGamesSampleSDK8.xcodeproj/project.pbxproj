@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1857DD19239A5CA9000093A0 /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857DD17239A5CA9000093A0 /* AdCell.swift */; };
+		1857DD1A239A5CA9000093A0 /* AdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1857DD18239A5CA9000093A0 /* AdCell.xib */; };
+		1857DD1C239A5D86000093A0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857DD1B239A5D86000093A0 /* Model.swift */; };
+		1857DD1E239A5FD0000093A0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857DD1D239A5FD0000093A0 /* Data.swift */; };
+		1857DD20239A6E0A000093A0 /* Prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857DD1F239A6E0A000093A0 /* Prepare.swift */; };
 		188C50CC239792A700D27623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C50CB239792A700D27623 /* AppDelegate.swift */; };
 		188C50CE239792A700D27623 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C50CD239792A700D27623 /* ViewController.swift */; };
 		188C50D1239792A700D27623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188C50CF239792A700D27623 /* Main.storyboard */; };
@@ -65,6 +70,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1857DD17239A5CA9000093A0 /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
+		1857DD18239A5CA9000093A0 /* AdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdCell.xib; sourceTree = "<group>"; };
+		1857DD1B239A5D86000093A0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1857DD1D239A5FD0000093A0 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		1857DD1F239A6E0A000093A0 /* Prepare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prepare.swift; sourceTree = "<group>"; };
 		188C50C8239792A700D27623 /* GreedyGamesSampleSDK8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreedyGamesSampleSDK8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188C50CB239792A700D27623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188C50CD239792A700D27623 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 				18B7145A2398B9FB0096DABC /* greedygame.framework */,
 				18B714592398B9F90096DABC /* imageprocessing.framework */,
 				188C50CB239792A700D27623 /* AppDelegate.swift */,
+				1857DD1D239A5FD0000093A0 /* Data.swift */,
 				188C50FB2397ABC200D27623 /* ViewFile 2.swift */,
 				18B7146C2398DBCF0096DABC /* IntroViewController.swift */,
 				188C50CD239792A700D27623 /* ViewController.swift */,
@@ -155,6 +166,8 @@
 				188C50D4239792AB00D27623 /* LaunchScreen.storyboard */,
 				188C50D7239792AB00D27623 /* Info.plist */,
 				188C510A2397B60200D27623 /* Constants.swift */,
+				1857DD1B239A5D86000093A0 /* Model.swift */,
+				1857DD1F239A6E0A000093A0 /* Prepare.swift */,
 			);
 			path = GreedyGamesSampleSDK8;
 			sourceTree = "<group>";
@@ -186,6 +199,8 @@
 				188C50F8239798EF00D27623 /* PlacesCell.xib */,
 				18B714662398D9F90096DABC /* IntroCell.swift */,
 				18B714672398D9F90096DABC /* IntroCell.xib */,
+				1857DD17239A5CA9000093A0 /* AdCell.swift */,
+				1857DD18239A5CA9000093A0 /* AdCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -262,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1857DD1A239A5CA9000093A0 /* AdCell.xib in Resources */,
 				188C51092397B07D00D27623 /* SIL Open Font License.txt in Resources */,
 				188C50EB239792C000D27623 /* 6.png in Resources */,
 				188C50E9239792C000D27623 /* s1.png in Resources */,
@@ -296,13 +312,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				18B7146D2398DBCF0096DABC /* IntroViewController.swift in Sources */,
+				1857DD19239A5CA9000093A0 /* AdCell.swift in Sources */,
 				188C50CE239792A700D27623 /* ViewController.swift in Sources */,
+				1857DD1C239A5D86000093A0 /* Model.swift in Sources */,
 				188C50FC2397ABC200D27623 /* ViewFile 2.swift in Sources */,
 				188C50F5239798D600D27623 /* DiscoverCell.swift in Sources */,
 				188C50CC239792A700D27623 /* AppDelegate.swift in Sources */,
 				188C50F9239798EF00D27623 /* PlacesCell.swift in Sources */,
+				1857DD1E239A5FD0000093A0 /* Data.swift in Sources */,
 				18B7146F239900D90096DABC /* GGCampaignDelegate.swift in Sources */,
 				188C510B2397B60200D27623 /* Constants.swift in Sources */,
+				1857DD20239A6E0A000093A0 /* Prepare.swift in Sources */,
 				18B714682398D9F90096DABC /* IntroCell.swift in Sources */,
 				188C510D2397C9F100D27623 /* DetailViewController.swift in Sources */,
 			);

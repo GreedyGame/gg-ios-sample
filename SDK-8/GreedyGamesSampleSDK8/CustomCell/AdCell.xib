@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ad_cell" id="gTV-IL-0wX" customClass="AdCell" customModule="GreedyGamesSampleSDK8" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="207" height="246"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="207" height="246"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X81-Xo-kOF">
+                        <rect key="frame" x="0.0" y="0.0" width="207" height="246"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rDs-DT-NZB">
+                                <rect key="frame" x="5" y="5" width="197" height="236"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rDs-DT-NZB" firstAttribute="top" secondItem="X81-Xo-kOF" secondAttribute="top" constant="5" id="T2i-Pv-JuO"/>
+                            <constraint firstAttribute="trailing" secondItem="rDs-DT-NZB" secondAttribute="trailing" constant="5" id="ZS0-9F-i5e"/>
+                            <constraint firstAttribute="bottom" secondItem="rDs-DT-NZB" secondAttribute="bottom" constant="5" id="ozp-Q8-Gnv"/>
+                            <constraint firstItem="rDs-DT-NZB" firstAttribute="leading" secondItem="X81-Xo-kOF" secondAttribute="leading" constant="5" id="rQj-Yy-173"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="X81-Xo-kOF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8Ls-9O-OtG"/>
+                <constraint firstAttribute="bottom" secondItem="X81-Xo-kOF" secondAttribute="bottom" id="gT5-Ia-UYR"/>
+                <constraint firstAttribute="trailing" secondItem="X81-Xo-kOF" secondAttribute="trailing" id="kxl-YC-ODc"/>
+                <constraint firstItem="X81-Xo-kOF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oOY-E1-WXo"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="207" height="246"/>
+            <connections>
+                <outlet property="adimageView" destination="rDs-DT-NZB" id="x1L-EJ-yDw"/>
+            </connections>
+            <point key="canvasLocation" x="61.600000000000001" y="31.484257871064472"/>
+        </collectionViewCell>
+    </objects>
+</document>
