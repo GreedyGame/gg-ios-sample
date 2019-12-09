@@ -12,6 +12,10 @@ class ViewController: UIViewController {
    
     @IBOutlet weak var textAdUnit: UIView!
     @IBOutlet weak var textAdunitimagView: UIImageView!
+    
+  
+    
+    
     @IBOutlet weak var discoverCollectionView: UICollectionView!
     @IBOutlet weak var newPlacesColletctionView: UICollectionView!
     @IBOutlet weak var userViewCollectionView: UICollectionView!
@@ -117,7 +121,7 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
                 return cell
             }else{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.AD_CELL, for: indexPath) as! AdCell
-                cell.adimageView.image = (UIApplication.shared.delegate as! AppDelegate).getImageFromPath(forunitID: "float-4354") ?? UIImage(named: "")
+                cell.adimageView.image = (UIApplication.shared.delegate as! AppDelegate).getImageFromPath(forunitID: "float-4353") ?? UIImage(named: "")
                 return cell
             }
         }
@@ -129,7 +133,11 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
         }else if collectionView ==  newPlacesColletctionView{
             return CGSize(width: collectionView.frame.size.width/3 - 10, height: collectionView.frame.size.height)
         }else{
-            return CGSize(width: collectionView.frame.size.width/4, height: 50)
+            if indexPath.row == 1{
+                return CGSize(width: 100, height: 50)
+            }else{
+                return CGSize(width: collectionView.frame.size.width/4, height: 50)
+            }
         }
     }
     

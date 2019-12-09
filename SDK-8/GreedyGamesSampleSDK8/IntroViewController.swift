@@ -11,18 +11,23 @@ import UIKit
 class IntroViewController: UIViewController {
 
     @IBOutlet weak var introCollectionView: UICollectionView!
-    
+
+    @IBOutlet weak var seeDemoBtn: UIButton!
+    @IBOutlet weak var activityindicator: UIActivityIndicatorView!
+    @IBOutlet weak var knowMorebtn: UIButton!
     @IBOutlet weak var pageCtrl: UIPageControl!
+    
     let headerList = ["For Publishers", "For Advertiser"]
     let descriptionList = ["Solving two key issues was important for native to be a viable ad strategy for publishers – placement rule-set and fill-rate. With our product suite, publishers can now implement native ads with ease, automate design optimization to improve CTR for a considerable jump in revenue.", "User experience is key for us. Any ad from our platform is quality, compliant, relevant and most importantly opt-in. This results into effective outcome metrics for the advertiser and non-intrusive ads for the user automatically."]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         introCollectionView.register(UINib(nibName: "IntroCell", bundle: nil), forCellWithReuseIdentifier: Constants.INTRO_CELL)
-
         introCollectionView.delegate = self
         introCollectionView.dataSource = self
+        showLoader()
+        
+        (UIApplication.shared.delegate as! AppDelegate).ggDelegate = self
     }
     
     @IBAction func pageCtrlAction(_ sender: UIPageControl) {
@@ -30,6 +35,29 @@ class IntroViewController: UIViewController {
     
     @IBAction func knowMoreBtnAction(_ sender: UIButton) {
         Utill.openSafari(with: Constants.GG_URL)
+    }
+    
+    
+    private func hideLoader(){
+        activityindicator.isHidden = true
+        activityindicator.stopAnimating()
+        UIView.animate(withDuration: 0.1) {
+            self.knowMorebtn.alpha = 1
+            self.knowMorebtn.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self.seeDemoBtn.alpha = 1
+            self.seeDemoBtn.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }
+    }
+    
+    private func showLoader(){
+        activityindicator.isHidden = false
+        activityindicator.startAnimating()
+        UIView.animate(withDuration: 0.1) {
+            self.knowMorebtn.alpha = 0
+            self.knowMorebtn.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+            self.seeDemoBtn.alpha = 0
+            self.seeDemoBtn.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        }
     }
     
     /*
@@ -69,6 +97,16 @@ extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSo
         }else{
             pageCtrl.currentPage = 0
         }
+    }
+}
 
+extension IntroViewController : GGCampaignDelegate{
+    
+    func GGAvailable() {
+        hideLoader()
+    }
+    
+    func GGUnAvailable() {
+        hideLoader()
     }
 }

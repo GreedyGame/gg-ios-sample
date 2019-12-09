@@ -68,16 +68,19 @@ extension AppDelegate : CampaignStateListener{
     
     func onAvailable(campaignId: String) {
         print("[GG]Campaign Available : \(campaignId)")
+        ggDelegate?.GGAvailable()
         Prepare.sharedInstance().addAdData()
     }
     
     func onUnavailable() {
         print("[GG]Campaign Unavailable")
+        ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
     }
     
     func onError(error: String) {
         print("[GG]Error : \(error)")
+        ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
     }
     

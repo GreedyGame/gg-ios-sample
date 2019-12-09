@@ -10,6 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var detailPlaceTemplateImgView: UIImageView!
+    @IBOutlet weak var adView: UIView!
     @IBOutlet weak var closebtn: UIButton!
     @IBOutlet weak var place_lbl: UILabel!
     @IBOutlet weak var location_lbl: UILabel!
@@ -24,6 +26,7 @@ class DetailViewController: UIViewController {
     var location = ""
     var image = ""
     var isGGCampaigAvailable = false
+    var isTemplateShown = false
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
@@ -38,16 +41,16 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        closeDetailTemplate()
         switch appdelegate.campaignState{
         case .Available:
             isGGCampaigAvailable = true
-            //update()
+            update()
         case .UnAvailable:
             isGGCampaigAvailable = false
-            //update()
+            update()
         }
     }
-    
 
     @IBAction func closebtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -68,12 +71,12 @@ class DetailViewController: UIViewController {
     private func update(){
         if isGGCampaigAvailable{
             guard let image = appdelegate.getImageFromPath(forunitID: "float-4352") else{
-                placeDetailTemplate_imageView.image = UIImage(named: "")
+                detailPlaceTemplateImgView.image = UIImage(named: "")
                 return
             }
-            placeDetailTemplate_imageView.image = image
+            detailPlaceTemplateImgView.image = image
         }else{
-            placeDetailTemplate_imageView.image = UIImage(named: "")
+            detailPlaceTemplateImgView.image = UIImage(named: "")
         }
     }
 }
@@ -110,8 +113,47 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
         return 800
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print("Begin draging : \(scrollView.contentOffset)")
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("Scroll : \(scrollView.contentOffset)")
+        print("Scroll : \(scrollView.contentOffset.y)")
+        print("isScrollTop : \(scrollView.scrollsToTop)")
+        if !scrollView.scrollsToTop{
+            return
+        }
+        if scrollView.contentOffset.y > 200{
+            if !isTemplateShown{
+                showDetailTemplate()
+            }else{
+                closeDetailTemplate()
+            }
+        }else{
+            closeDetailTemplate()
+        }
+    }
+    
+    
+    private func showDetailTemplate(){
+        UIView.animate(withDuration: 0.5) {
+            self.adView.transform = CGAffineTransform(translationX: 0, y: 50)
+            self.isTemplateShown = true
+        }
+//        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+//            self.adView.transform = CGAffineTransform(translationX: 0, y: 50)
+//            self.isTemplateShown = true
+//        }, completion: nil)
     }
    
+    private func closeDetailTemplate(){
+        UIView.animate(withDuration: 0.5) {
+            self.adView.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.isTemplateShown = false
+        }
+//        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+//            self.adView.transform = CGAffineTransform(translationX: 0, y: -50)
+//            self.isTemplateShown = false
+//        }, completion: nil)
+    }
 }
