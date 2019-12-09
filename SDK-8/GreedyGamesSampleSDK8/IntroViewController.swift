@@ -16,8 +16,6 @@ class IntroViewController: UIViewController {
     let headerList = ["For Publishers", "For Advertiser"]
     let descriptionList = ["Solving two key issues was important for native to be a viable ad strategy for publishers – placement rule-set and fill-rate. With our product suite, publishers can now implement native ads with ease, automate design optimization to improve CTR for a considerable jump in revenue.", "User experience is key for us. Any ad from our platform is quality, compliant, relevant and most importantly opt-in. This results into effective outcome metrics for the advertiser and non-intrusive ads for the user automatically."]
     
-    @IBAction func pageCtrlAction(_ sender: UIPageControl) {
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +25,13 @@ class IntroViewController: UIViewController {
         introCollectionView.dataSource = self
     }
     
-
+    @IBAction func pageCtrlAction(_ sender: UIPageControl) {
+    }
+    
+    @IBAction func knowMoreBtnAction(_ sender: UIButton) {
+        Utill.openSafari(with: Constants.GG_URL)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -60,9 +64,6 @@ extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSo
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        print("Visible Cell : \(introCollectionView.visibleCells)")
-        print("CollectionView offset : \(introCollectionView.contentOffset)")
-        print("offste value : \(targetContentOffset.pointee)")
         if introCollectionView.frame.width == targetContentOffset.pointee.x{
             pageCtrl.currentPage = 1
         }else{

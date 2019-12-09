@@ -11,11 +11,14 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var closebtn: UIButton!
-    @IBOutlet weak var placelbl: UILabel!
-    @IBOutlet weak var locationlbl: UILabel!
+    @IBOutlet weak var place_lbl: UILabel!
+    @IBOutlet weak var location_lbl: UILabel!
     
+    @IBOutlet weak var content_tableView: UITableView!
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var placeDetailTemplate_imageView: UIImageView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var place  = ""
     var location = ""
@@ -25,10 +28,12 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        place = place.replacingOccurrences(of: "\n", with: "")
-        placelbl.text = place
-        locationlbl.text = location
-        placeImageView.image = UIImage(named: image)
+       place = place.replacingOccurrences(of: "\n", with: "")
+//        place_lbl.text = place
+//        location_lbl.text = location
+//        placeImageView.image = UIImage(named: image)
+//        scrollView.delegate = self
+        registerCell()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,10 +41,10 @@ class DetailViewController: UIViewController {
         switch appdelegate.campaignState{
         case .Available:
             isGGCampaigAvailable = true
-            update()
+            //update()
         case .UnAvailable:
             isGGCampaigAvailable = false
-            update()
+            //update()
         }
     }
     
@@ -53,6 +58,12 @@ class DetailViewController: UIViewController {
     }
 
    
+    private func registerCell(){
+        content_tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: Constants.DETAIL_CELL)
+        content_tableView.delegate = self
+        content_tableView.dataSource = self
+    }
+    
     /// Helper method to updat the template
     private func update(){
         if isGGCampaigAvailable{
@@ -65,4 +76,42 @@ class DetailViewController: UIViewController {
             placeDetailTemplate_imageView.image = UIImage(named: "")
         }
     }
+}
+
+
+extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.DETAIL_CELL, for: indexPath) as! DetailCell
+        cell.mainImage?.image = UIImage(named: image)
+        cell.placelbl.text = place
+        cell.locationlbl.text = location
+        
+        switch appdelegate.campaignState{
+        case .Available:
+            if let image = appdelegate.getImageFromPath(forunitID: "float-4352"){
+               cell.templateImgView.image = image
+            }else{
+                cell.templateImgView.image = UIImage(named: "")
+            }
+
+        case .UnAvailable:
+            cell.templateImgView.image = UIImage(named: "")
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 800
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("Scroll : \(scrollView.contentOffset)")
+    }
+   
 }

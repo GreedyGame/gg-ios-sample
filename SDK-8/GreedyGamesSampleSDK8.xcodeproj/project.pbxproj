@@ -51,6 +51,11 @@
 		18B7146B2398DBAD0096DABC /* GG_ 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B7146A2398DBAC0096DABC /* GG_ 1.png */; };
 		18B7146D2398DBCF0096DABC /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7146C2398DBCF0096DABC /* IntroViewController.swift */; };
 		18B7146F239900D90096DABC /* GGCampaignDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7146E239900D90096DABC /* GGCampaignDelegate.swift */; };
+		18D01988239E0FFE00789991 /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D01986239E0FFE00789991 /* UserViewCell.swift */; };
+		18D01989239E0FFE00789991 /* UserViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D01987239E0FFE00789991 /* UserViewCell.xib */; };
+		18D0198B239E150400789991 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0198A239E150400789991 /* Utils.swift */; };
+		18D0198E239E2A8100789991 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0198C239E2A8100789991 /* DetailCell.swift */; };
+		18D0198F239E2A8100789991 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D0198D239E2A8100789991 /* DetailCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,6 +118,11 @@
 		18B7146A2398DBAC0096DABC /* GG_ 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GG_ 1.png"; sourceTree = "<group>"; };
 		18B7146C2398DBCF0096DABC /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		18B7146E239900D90096DABC /* GGCampaignDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCampaignDelegate.swift; sourceTree = "<group>"; };
+		18D01986239E0FFE00789991 /* UserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
+		18D01987239E0FFE00789991 /* UserViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewCell.xib; sourceTree = "<group>"; };
+		18D0198A239E150400789991 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		18D0198C239E2A8100789991 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		18D0198D239E2A8100789991 /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +169,7 @@
 				188C50FB2397ABC200D27623 /* ViewFile 2.swift */,
 				18B7146C2398DBCF0096DABC /* IntroViewController.swift */,
 				188C50CD239792A700D27623 /* ViewController.swift */,
+				18D0198A239E150400789991 /* Utils.swift */,
 				18B7146E239900D90096DABC /* GGCampaignDelegate.swift */,
 				188C510C2397C9F100D27623 /* DetailViewController.swift */,
 				188C50CF239792A700D27623 /* Main.storyboard */,
@@ -201,6 +212,10 @@
 				18B714672398D9F90096DABC /* IntroCell.xib */,
 				1857DD17239A5CA9000093A0 /* AdCell.swift */,
 				1857DD18239A5CA9000093A0 /* AdCell.xib */,
+				18D01986239E0FFE00789991 /* UserViewCell.swift */,
+				18D01987239E0FFE00789991 /* UserViewCell.xib */,
+				18D0198C239E2A8100789991 /* DetailCell.swift */,
+				18D0198D239E2A8100789991 /* DetailCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -283,6 +298,7 @@
 				188C50E9239792C000D27623 /* s1.png in Resources */,
 				188C50F6239798D600D27623 /* DiscoverCell.xib in Resources */,
 				188C50FA239798EF00D27623 /* PlacesCell.xib in Resources */,
+				18D0198F239E2A8100789991 /* DetailCell.xib in Resources */,
 				18B7146B2398DBAD0096DABC /* GG_ 1.png in Resources */,
 				188C50EE239792C000D27623 /* 2.png in Resources */,
 				188C51072397B07D00D27623 /* Poppins-SemiBold.ttf in Resources */,
@@ -290,6 +306,7 @@
 				18B714692398D9FA0096DABC /* IntroCell.xib in Resources */,
 				188C50ED239792C000D27623 /* 3.png in Resources */,
 				188C50F1239792C000D27623 /* 1.png in Resources */,
+				18D01989239E0FFE00789991 /* UserViewCell.xib in Resources */,
 				188C50D6239792AB00D27623 /* LaunchScreen.storyboard in Resources */,
 				188C50EA239792C000D27623 /* 5.png in Resources */,
 				188C50D3239792AB00D27623 /* Assets.xcassets in Resources */,
@@ -317,10 +334,13 @@
 				1857DD1C239A5D86000093A0 /* Model.swift in Sources */,
 				188C50FC2397ABC200D27623 /* ViewFile 2.swift in Sources */,
 				188C50F5239798D600D27623 /* DiscoverCell.swift in Sources */,
+				18D01988239E0FFE00789991 /* UserViewCell.swift in Sources */,
+				18D0198B239E150400789991 /* Utils.swift in Sources */,
 				188C50CC239792A700D27623 /* AppDelegate.swift in Sources */,
 				188C50F9239798EF00D27623 /* PlacesCell.swift in Sources */,
 				1857DD1E239A5FD0000093A0 /* Data.swift in Sources */,
 				18B7146F239900D90096DABC /* GGCampaignDelegate.swift in Sources */,
+				18D0198E239E2A8100789991 /* DetailCell.swift in Sources */,
 				188C510B2397B60200D27623 /* Constants.swift in Sources */,
 				1857DD20239A6E0A000093A0 /* Prepare.swift in Sources */,
 				18B714682398D9F90096DABC /* IntroCell.swift in Sources */,

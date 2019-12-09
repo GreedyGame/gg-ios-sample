@@ -12,6 +12,7 @@ class Prepare : NSObject{
     
     var discoverlist = [Discover]()
     var placelist = [Places]()
+    var userViewList = [UserView]()
     static var instance : Prepare?
     
     override init() {
@@ -33,7 +34,14 @@ class Prepare : NSObject{
             
             let placeObj = Places(image: MyData.nImage[i], name: MyData.nPlace[i], location: MyData.nLocation[i], type: .content)
             placelist.append(placeObj)
+            
+            if i < 3{
+                let userViewObj = UserView(title: MyData.userView[i], type:.content)
+                userViewList.append(userViewObj)
+            }
         }
+        
+        
     }
     
     func addAdData(){
@@ -42,6 +50,8 @@ class Prepare : NSObject{
         
         self.placelist.insert(preparePlaceAdData(), at: 3)
         self.placelist.insert(preparePlaceAdData(), at: 5)
+        
+        self.userViewList.insert(prepareUserViewAdData(), at: 1)
     }
     
     func removeAdData() {
@@ -51,6 +61,10 @@ class Prepare : NSObject{
             
             self.placelist.remove(at: 3)
             self.placelist.remove(at: 5)
+        }
+        
+        if userViewList.count == 4{
+            self.discoverlist.remove(at: 2)
         }
     }
     
@@ -62,6 +76,11 @@ class Prepare : NSObject{
     private func preparePlaceAdData() -> Places{
         let placeObj = Places(image: nil, name: nil, location: nil, type: .Ad)
         return placeObj
+    }
+    
+    private func prepareUserViewAdData() -> UserView{
+        let userViewObj = UserView(title: nil, type: .Ad)
+        return userViewObj
     }
     
 }

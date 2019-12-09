@@ -14,4 +14,8 @@ class Constants{
     static let PLACE_CELL = "place_cell"
     static let INTRO_CELL = "intro_cell"
     static let AD_CELL = "ad_cell"
+    static let USER_VIEW_CELL = "userView_cell"
+    static let DETAIL_CELL = "detail_cell"
+    
+    static let GG_URL = "https://greedygame.com/"
 }

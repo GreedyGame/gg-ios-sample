@@ -18,4 +18,6 @@ class MyData{
     static let nPlace = ["Causeway Island", "castle", "River Aga", "The Mosque", "The Valley"]
     static let nLocation = ["Ireland", "Iceland", "venice", "Turkey", "Baghdad"]
     
+    static let userView = ["Popular","Recommended","Cost-Effective"]
+    
 }

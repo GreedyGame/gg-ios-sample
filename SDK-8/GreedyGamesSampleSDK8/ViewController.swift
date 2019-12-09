@@ -14,8 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var textAdunitimagView: UIImageView!
     @IBOutlet weak var discoverCollectionView: UICollectionView!
     @IBOutlet weak var newPlacesColletctionView: UICollectionView!
+    @IBOutlet weak var userViewCollectionView: UICollectionView!
     @IBOutlet weak var textAdUnitWidth: NSLayoutConstraint!
     
+    @IBOutlet weak var pagectrl: UIPageControl!
     var isGGCampaigAvailable = false
     
     override func viewDidLoad() {
@@ -26,32 +28,33 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        (UIApplication.shared.delegate as! AppDelegate).ggDelegate = self
-//        switch (UIApplication.shared.delegate as! AppDelegate).campaignState{
-//        case .Available:
-//            isGGCampaigAvailable = true
-//            update()
-//        case .UnAvailable:
-//            isGGCampaigAvailable = false
-//            update()
-//        }
+        pagectrl.numberOfPages = Prepare.sharedInstance().discoverlist.count
+
     }
     
     @IBAction func textAdUnitbtnAction(_ sender: Any) {
         (UIApplication.shared.delegate as! AppDelegate).greedyAgent?.showUII(unitId: "float-4353")
     }
     
+    @IBAction func pagectrlAction(_ sender: UIPageControl) {
+    }
     private func registerCell(){
         discoverCollectionView.register(UINib(nibName: "DiscoverCell", bundle: nil), forCellWithReuseIdentifier: Constants.DISCOVER_CELL)
         newPlacesColletctionView.register(UINib(nibName: "PlacesCell", bundle: nil), forCellWithReuseIdentifier: Constants.PLACE_CELL)
+        userViewCollectionView.register(UINib(nibName: "UserViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.USER_VIEW_CELL)
+
         
         discoverCollectionView.register(UINib(nibName: "AdCell", bundle: nil), forCellWithReuseIdentifier: Constants.AD_CELL)
         newPlacesColletctionView.register(UINib(nibName: "AdCell", bundle: nil), forCellWithReuseIdentifier: Constants.AD_CELL)
+        userViewCollectionView.register(UINib(nibName: "AdCell", bundle: nil), forCellWithReuseIdentifier: Constants.AD_CELL)
+        
         
         discoverCollectionView.delegate = self
         discoverCollectionView.dataSource = self
         newPlacesColletctionView.delegate = self
         newPlacesColletctionView.dataSource = self
+        userViewCollectionView.delegate = self
+        userViewCollectionView.dataSource = self
     }
     
 }
@@ -62,8 +65,10 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
         
         if collectionView == discoverCollectionView{
             return Prepare.sharedInstance().discoverlist.count
-        }else{
+        }else if collectionView == newPlacesColletctionView{
             return Prepare.sharedInstance().placelist.count
+        }else{
+            return Prepare.sharedInstance().userViewList.count
         }
     }
     
@@ -84,7 +89,7 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
                 return cell
             }
             
-        }else{
+        }else if collectionView == newPlacesColletctionView{
             let obj = Prepare.sharedInstance().placelist[indexPath.item]
             if obj.type == Type.content{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier:
@@ -98,14 +103,33 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
                 cell.adimageView.image = (UIApplication.shared.delegate as! AppDelegate).getImageFromPath(forunitID: "float-4354") ?? UIImage(named: "")
                 return cell
             }
+        }else{
+            let obj = Prepare.sharedInstance().userViewList[indexPath.row]
+            if obj.type == Type.content{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.USER_VIEW_CELL, for: indexPath) as! UserViewCell
+                cell.titlelbl?.text = obj.title
+                if indexPath.row == 0{
+                    cell.titlelbl.textColor = .orange
+                    cell.titlelbl.font = UIFont.boldSystemFont(ofSize: 15)
+                }else{
+                    cell.titlelbl.font = UIFont.systemFont(ofSize: 10)
+                }
+                return cell
+            }else{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.AD_CELL, for: indexPath) as! AdCell
+                cell.adimageView.image = (UIApplication.shared.delegate as! AppDelegate).getImageFromPath(forunitID: "float-4354") ?? UIImage(named: "")
+                return cell
+            }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == discoverCollectionView{
             return CGSize(width: collectionView.frame.size.width-10, height: collectionView.frame.size.height)
-        }else{
+        }else if collectionView ==  newPlacesColletctionView{
             return CGSize(width: collectionView.frame.size.width/3 - 10, height: collectionView.frame.size.height)
+        }else{
+            return CGSize(width: collectionView.frame.size.width/4, height: 50)
         }
     }
     
@@ -119,10 +143,18 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
         }else{
             if collectionView == discoverCollectionView{
                 openGG(id: "float-4349")
-            }else{
+            }else if collectionView == newPlacesColletctionView{
                 openGG(id: "float-4354")
+            }else{
+                // TODO:
             }
         }
+    }
+    
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let currentPage = (targetContentOffset.pointee.x/discoverCollectionView.frame.size.width)
+        pagectrl.currentPage = Int(currentPage)
     }
     
     

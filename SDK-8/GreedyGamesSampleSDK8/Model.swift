@@ -34,4 +34,7 @@ struct Places {
     let location:String?
     let type:Type?
 }
-
+struct UserView {
+    let title : String?
+    let type : Type?
+}
