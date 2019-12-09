@@ -45,13 +45,15 @@ class Prepare : NSObject{
     }
     
     func addAdData(){
-        self.discoverlist.insert(prepareDiscoverAdData(), at: 3)
-        self.discoverlist.insert(prepareDiscoverAdData(), at: 5)
-        
-        self.placelist.insert(preparePlaceAdData(), at: 3)
-        self.placelist.insert(preparePlaceAdData(), at: 5)
-        
-        self.userViewList.insert(prepareUserViewAdData(), at: 1)
+        if discoverlist.count == 5 || discoverlist.isEmpty{
+            self.discoverlist.insert(prepareDiscoverAdData(), at: 3)
+            self.discoverlist.insert(prepareDiscoverAdData(), at: 5)
+            
+            self.placelist.insert(preparePlaceAdData(), at: 3)
+            self.placelist.insert(preparePlaceAdData(), at: 5)
+            
+            self.userViewList.insert(prepareUserViewAdData(), at: 1)
+        }
     }
     
     func removeAdData() {

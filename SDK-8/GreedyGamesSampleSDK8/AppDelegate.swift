@@ -68,18 +68,21 @@ extension AppDelegate : CampaignStateListener{
     
     func onAvailable(campaignId: String) {
         print("[GG]Campaign Available : \(campaignId)")
+        startTimer()
         ggDelegate?.GGAvailable()
         Prepare.sharedInstance().addAdData()
     }
     
     func onUnavailable() {
         print("[GG]Campaign Unavailable")
+        startTimer()
         ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
     }
     
     func onError(error: String) {
         print("[GG]Error : \(error)")
+        startTimer()
         ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
     }
@@ -92,8 +95,13 @@ extension AppDelegate : CampaignStateListener{
         guard let imagePath = self.greedyAgent?.getPath(unitId: id),let image = UIImage(contentsOfFile: imagePath) else{
             return nil
         }
-        
         return image
+    }
+    
+    private func startTimer(){
+        Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
+            self.greedyAgent?.refresh()
+        }
     }
 
 }
