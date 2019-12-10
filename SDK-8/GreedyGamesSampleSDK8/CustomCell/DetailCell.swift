@@ -10,6 +10,7 @@ import UIKit
 
 class DetailCell: UITableViewCell {
 
+    private final let TAG = "Detl_cl"
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var placelbl: UILabel!
     @IBOutlet weak var locationlbl: UILabel!
@@ -28,6 +29,7 @@ class DetailCell: UITableViewCell {
     }
     
     @IBAction func templateBtnAction(_ sender: UIButton) {
+        Log.d(for: TAG, message: "showing GG Engagement window")
         (UIApplication.shared.delegate as! AppDelegate).openGGEngageMentWindow(forunitID: "float-4352")
     }
 }

@@ -1,0 +1,16 @@
+PODS:
+  - Instructions (1.2.2)
+
+DEPENDENCIES:
+  - Instructions (~> 1.2.0)
+
+SPEC REPOS:
+  trunk:
+    - Instructions
+
+SPEC CHECKSUMS:
+  Instructions: baff1b8ac41e195556c2b3453be1fcdd92e18612
+
+PODFILE CHECKSUM: f621df26705a546360b2ed4ddeef37ef8b348b27
+
+COCOAPODS: 1.8.4

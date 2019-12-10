@@ -17,6 +17,7 @@ enum State{
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    private final let TAG = "App_del"
     var window: UIWindow?
     
     var greedyAgent: GreedyGameAgent?
@@ -57,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate : CampaignStateListener{
     
     private func loadSDK(){
+        Log.d(for: TAG, message: "Initializing GG SDK")
         greedyAgent = GreedyGameAgent.Builder()
                         .setGameId("39254904")
                         .setUnits(units: ["float-4349","float-4350","float-4351","float-4352","float-4353","float-4354"])
@@ -67,31 +69,35 @@ extension AppDelegate : CampaignStateListener{
     }
     
     func onAvailable(campaignId: String) {
-        print("[GG]Campaign Available : \(campaignId)")
-        startTimer()
+        Log.d(for: TAG, message: "Campaign Available : \(campaignId)")
         ggDelegate?.GGAvailable()
         Prepare.sharedInstance().addAdData()
     }
     
     func onUnavailable() {
-        print("[GG]Campaign Unavailable")
+        Log.d(for: TAG, message: "Campaign UnAvailable")
         startTimer()
         ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
     }
     
     func onError(error: String) {
-        print("[GG]Error : \(error)")
+        Log.d(for: TAG, message: "Campaign Error: \(error)")
         startTimer()
         ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
     }
     
     func openGGEngageMentWindow(forunitID id:String){
+        
+        Log.d(for: TAG, message: "showing engagement window for the unit id: \(id)")
         self.greedyAgent?.showUII(unitId: id)
     }
     
     func getImageFromPath(forunitID id:String) -> UIImage?{
+        startTimer()
+
+        Log.d(for: TAG, message: "trying to get the image for the unit id: \(id)")
         guard let imagePath = self.greedyAgent?.getPath(unitId: id),let image = UIImage(contentsOfFile: imagePath) else{
             return nil
         }
@@ -99,7 +105,10 @@ extension AppDelegate : CampaignStateListener{
     }
     
     private func startTimer(){
+        Log.d(for: TAG, message: "Timer started")
+
         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
+            Log.d(for: self.TAG, message: "60 seconds done, Going to refresh the GreedyGame SDK")
             self.greedyAgent?.refresh()
         }
     }

@@ -12,6 +12,7 @@ class IntroCell: UICollectionViewCell {
 
     @IBOutlet weak var headerlbl: UILabel!
     @IBOutlet weak var descriptionlbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

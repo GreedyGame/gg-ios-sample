@@ -11,6 +11,7 @@ import UIKit
 class UserViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titlelbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

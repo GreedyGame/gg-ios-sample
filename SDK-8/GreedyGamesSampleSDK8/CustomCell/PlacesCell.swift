@@ -9,8 +9,6 @@
 import UIKit
 
 class PlacesCell: UICollectionViewCell {
-
-    
     
     @IBOutlet weak var imageView: UIImageView!
     

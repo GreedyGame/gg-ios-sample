@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,6 +56,10 @@
 		18D0198B239E150400789991 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0198A239E150400789991 /* Utils.swift */; };
 		18D0198E239E2A8100789991 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0198C239E2A8100789991 /* DetailCell.swift */; };
 		18D0198F239E2A8100789991 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D0198D239E2A8100789991 /* DetailCell.xib */; };
+		18D01997239F9D0D00789991 /* DefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D01996239F9D0D00789991 /* DefaultHelper.swift */; };
+		18D01999239FA2A000789991 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D01998239FA2A000789991 /* Log.swift */; };
+		18D0199B239FAF6100789991 /* UpdateDelagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0199A239FAF6100789991 /* UpdateDelagate.swift */; };
+		F3AFBE37B988ED0A308042A0 /* Pods_GreedyGamesSampleSDK8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7442E0FFEBCDF39208DCB37 /* Pods_GreedyGamesSampleSDK8.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -123,6 +127,12 @@
 		18D0198A239E150400789991 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		18D0198C239E2A8100789991 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		18D0198D239E2A8100789991 /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
+		18D01996239F9D0D00789991 /* DefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHelper.swift; sourceTree = "<group>"; };
+		18D01998239FA2A000789991 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		18D0199A239FAF6100789991 /* UpdateDelagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelagate.swift; sourceTree = "<group>"; };
+		7A0B57530A530696B55FD5EF /* Pods-GreedyGamesSampleSDK8.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreedyGamesSampleSDK8.debug.xcconfig"; path = "Target Support Files/Pods-GreedyGamesSampleSDK8/Pods-GreedyGamesSampleSDK8.debug.xcconfig"; sourceTree = "<group>"; };
+		A7442E0FFEBCDF39208DCB37 /* Pods_GreedyGamesSampleSDK8.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreedyGamesSampleSDK8.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2FBF7D90418C853709E5511 /* Pods-GreedyGamesSampleSDK8.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreedyGamesSampleSDK8.release.xcconfig"; path = "Target Support Files/Pods-GreedyGamesSampleSDK8/Pods-GreedyGamesSampleSDK8.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +143,7 @@
 				18B7145F2398BA0B0096DABC /* commons.framework in Frameworks */,
 				18B7145D2398B9FB0096DABC /* greedygame.framework in Frameworks */,
 				18B7145C2398B9FB0096DABC /* imageprocessing.framework in Frameworks */,
+				F3AFBE37B988ED0A308042A0 /* Pods_GreedyGamesSampleSDK8.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +155,8 @@
 			children = (
 				188C50CA239792A700D27623 /* GreedyGamesSampleSDK8 */,
 				188C50C9239792A700D27623 /* Products */,
+				D1C68491D201B27CEDD340D0 /* Pods */,
+				63EB55F888F0464BB003A6AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,27 +171,21 @@
 		188C50CA239792A700D27623 /* GreedyGamesSampleSDK8 */ = {
 			isa = PBXGroup;
 			children = (
+				18D01995239F9D0200789991 /* Manager */,
+				18D01992239F622B00789991 /* Helper */,
+				18D01991239F620600789991 /* Utills */,
+				18D01990239F61D000789991 /* Controller */,
+				18D01994239F628C00789991 /* Model */,
 				188C50FD2397B06300D27623 /* Font */,
 				188C50F2239798AB00D27623 /* CustomCell */,
 				188C50DD239792B200D27623 /* Images */,
+				18D01993239F625900789991 /* StoryBoard */,
 				18B7145B2398B9FB0096DABC /* commons.framework */,
 				18B7145A2398B9FB0096DABC /* greedygame.framework */,
 				18B714592398B9F90096DABC /* imageprocessing.framework */,
 				188C50CB239792A700D27623 /* AppDelegate.swift */,
-				1857DD1D239A5FD0000093A0 /* Data.swift */,
-				188C50FB2397ABC200D27623 /* ViewFile 2.swift */,
-				18B7146C2398DBCF0096DABC /* IntroViewController.swift */,
-				188C50CD239792A700D27623 /* ViewController.swift */,
-				18D0198A239E150400789991 /* Utils.swift */,
-				18B7146E239900D90096DABC /* GGCampaignDelegate.swift */,
-				188C510C2397C9F100D27623 /* DetailViewController.swift */,
-				188C50CF239792A700D27623 /* Main.storyboard */,
 				188C50D2239792AB00D27623 /* Assets.xcassets */,
-				188C50D4239792AB00D27623 /* LaunchScreen.storyboard */,
 				188C50D7239792AB00D27623 /* Info.plist */,
-				188C510A2397B60200D27623 /* Constants.swift */,
-				1857DD1B239A5D86000093A0 /* Model.swift */,
-				1857DD1F239A6E0A000093A0 /* Prepare.swift */,
 			);
 			path = GreedyGamesSampleSDK8;
 			sourceTree = "<group>";
@@ -233,6 +240,80 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		18D01990239F61D000789991 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18B7146C2398DBCF0096DABC /* IntroViewController.swift */,
+				188C50CD239792A700D27623 /* ViewController.swift */,
+				188C510C2397C9F100D27623 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18D01991239F620600789991 /* Utills */ = {
+			isa = PBXGroup;
+			children = (
+				188C50FB2397ABC200D27623 /* ViewFile 2.swift */,
+				18D0198A239E150400789991 /* Utils.swift */,
+				188C510A2397B60200D27623 /* Constants.swift */,
+				18D01998239FA2A000789991 /* Log.swift */,
+			);
+			path = Utills;
+			sourceTree = "<group>";
+		};
+		18D01992239F622B00789991 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1857DD1D239A5FD0000093A0 /* Data.swift */,
+				18B7146E239900D90096DABC /* GGCampaignDelegate.swift */,
+				1857DD1F239A6E0A000093A0 /* Prepare.swift */,
+				18D0199A239FAF6100789991 /* UpdateDelagate.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		18D01993239F625900789991 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				188C50CF239792A700D27623 /* Main.storyboard */,
+				188C50D4239792AB00D27623 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		18D01994239F628C00789991 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1857DD1B239A5D86000093A0 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18D01995239F9D0200789991 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				18D01996239F9D0D00789991 /* DefaultHelper.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		63EB55F888F0464BB003A6AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7442E0FFEBCDF39208DCB37 /* Pods_GreedyGamesSampleSDK8.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1C68491D201B27CEDD340D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A0B57530A530696B55FD5EF /* Pods-GreedyGamesSampleSDK8.debug.xcconfig */,
+				B2FBF7D90418C853709E5511 /* Pods-GreedyGamesSampleSDK8.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -240,10 +321,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 188C50DA239792AB00D27623 /* Build configuration list for PBXNativeTarget "GreedyGamesSampleSDK8" */;
 			buildPhases = (
+				740397010F9F9DE54A5C7348 /* [CP] Check Pods Manifest.lock */,
 				188C50C4239792A700D27623 /* Sources */,
 				188C50C5239792A700D27623 /* Frameworks */,
 				188C50C6239792A700D27623 /* Resources */,
 				18B714652398BA0C0096DABC /* Embed Frameworks */,
+				FEBF833E753988646313F4D7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,6 +406,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		740397010F9F9DE54A5C7348 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GreedyGamesSampleSDK8-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEBF833E753988646313F4D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreedyGamesSampleSDK8/Pods-GreedyGamesSampleSDK8-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreedyGamesSampleSDK8/Pods-GreedyGamesSampleSDK8-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreedyGamesSampleSDK8/Pods-GreedyGamesSampleSDK8-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		188C50C4239792A700D27623 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -333,14 +458,17 @@
 				188C50CE239792A700D27623 /* ViewController.swift in Sources */,
 				1857DD1C239A5D86000093A0 /* Model.swift in Sources */,
 				188C50FC2397ABC200D27623 /* ViewFile 2.swift in Sources */,
+				18D0199B239FAF6100789991 /* UpdateDelagate.swift in Sources */,
 				188C50F5239798D600D27623 /* DiscoverCell.swift in Sources */,
 				18D01988239E0FFE00789991 /* UserViewCell.swift in Sources */,
+				18D01997239F9D0D00789991 /* DefaultHelper.swift in Sources */,
 				18D0198B239E150400789991 /* Utils.swift in Sources */,
 				188C50CC239792A700D27623 /* AppDelegate.swift in Sources */,
 				188C50F9239798EF00D27623 /* PlacesCell.swift in Sources */,
 				1857DD1E239A5FD0000093A0 /* Data.swift in Sources */,
 				18B7146F239900D90096DABC /* GGCampaignDelegate.swift in Sources */,
 				18D0198E239E2A8100789991 /* DetailCell.swift in Sources */,
+				18D01999239FA2A000789991 /* Log.swift in Sources */,
 				188C510B2397B60200D27623 /* Constants.swift in Sources */,
 				1857DD20239A6E0A000093A0 /* Prepare.swift in Sources */,
 				18B714682398D9F90096DABC /* IntroCell.swift in Sources */,
@@ -488,6 +616,7 @@
 		};
 		188C50DB239792AB00D27623 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A0B57530A530696B55FD5EF /* Pods-GreedyGamesSampleSDK8.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -510,6 +639,7 @@
 		};
 		188C50DC239792AB00D27623 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2FBF7D90418C853709E5511 /* Pods-GreedyGamesSampleSDK8.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
