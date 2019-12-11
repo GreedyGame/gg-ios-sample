@@ -163,6 +163,7 @@ extension DetailViewController : UpdateDelagate{
         Log.d(for: TAG, message: "Update Called")
 
         content_tableView.reloadData()
+        self.view.setNeedsLayout()
         if appdelegate.campaignState == .Available{
             detailPlaceTemplateImgView.image = appdelegate.getImageFromPath(forunitID: "float-4352")
         }else{

@@ -19,12 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private final let TAG = "App_del"
     
-    private var timeInterVal = 60
     var window: UIWindow?
     
     var greedyAgent: GreedyGameAgent?
     var ggDelegate : GGCampaignDelegate?
     var campaignState : State = .Available
+    private var timeInterVal = 65
+    private var countDownTimer : Timer?
+    private var isTimerRunning = false
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -72,6 +74,7 @@ extension AppDelegate : CampaignStateListener{
     
     func onAvailable(campaignId: String) {
         Log.d(for: TAG, message: "Campaign Available : \(campaignId)")
+        startTimer()
         ggDelegate?.GGAvailable()
         Prepare.sharedInstance().addAdData()
     }
@@ -91,13 +94,15 @@ extension AppDelegate : CampaignStateListener{
     }
     
     func openGGEngageMentWindow(forunitID id:String){
-        
         Log.d(for: TAG, message: "showing engagement window for the unit id: \(id)")
         self.greedyAgent?.showUII(unitId: id)
     }
     
     func getImageFromPath(forunitID id:String) -> UIImage?{
-        startTimer()
+        /*if !isTimerStarted{
+            startTimer()
+            isTimerStarted = true
+        }*/
         Log.d(for: TAG, message: "trying to get the image for the unit id: \(id)")
         guard let imagePath = self.greedyAgent?.getPath(unitId: id),let image = UIImage(contentsOfFile: imagePath) else{
             return nil
@@ -107,17 +112,19 @@ extension AppDelegate : CampaignStateListener{
     
     private func startTimer(){
         Log.d(for: TAG, message: "Timer started")
-
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-             self.timeInterVal -= 1
-             if self.timeInterVal == 0{
+        
+        self.countDownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            self.timeInterVal -= 1
+            print("My ctn Timer : \(self.timeInterVal)")
+            if self.timeInterVal == 0{
                 Log.d(for: self.TAG, message: "60 seconds done, Going to refresh the GreedyGame SDK")
-                timer.invalidate()
-                self.timeInterVal = 60
+                self.isTimerRunning = false
+                self.countDownTimer!.invalidate()
+                self.countDownTimer = nil
+                self.timeInterVal = 65
                 self.greedyAgent?.refresh()
             }
-            
-        }
+        })
     }
 
 }

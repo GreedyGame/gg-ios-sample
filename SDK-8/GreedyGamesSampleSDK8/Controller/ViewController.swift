@@ -174,23 +174,26 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let obj = Prepare.sharedInstance().discoverlist[indexPath.item]
     
-        if obj.type == .content{
-            if collectionView == discoverCollectionView{
+        if collectionView  == discoverCollectionView{
+            let obj = Prepare.sharedInstance().discoverlist[indexPath.item]
+            if obj.type == .content{
                 openDetailVC(with: obj)
+            }else{
+                openGG(id: "float-4349")
+            }
+        }else if collectionView == newPlacesColletctionView{
+            let obj = Prepare.sharedInstance().placelist[indexPath.item]
+            if obj.type == .Ad{
+                openGG(id: "float-4354")
             }
         }else{
-            if collectionView == discoverCollectionView{
-                openGG(id: "float-4349")
-            }else if collectionView == newPlacesColletctionView{
-                openGG(id: "float-4354")
-            }else{
+            let obj = Prepare.sharedInstance().userViewList[indexPath.item]
+            if obj.type == .Ad{
                 openGG(id: "float-4353")
             }
         }
     }
-    
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let currentPage = (targetContentOffset.pointee.x/discoverCollectionView.frame.size.width)
@@ -300,7 +303,8 @@ extension ViewController : CoachMarksControllerDataSource, CoachMarksControllerD
 
 extension ViewController : UpdateDelagate{
     
-    internal func update(){
+    func update(){
+      Log.d(for: TAG, message: "Update Called")
       updateVC()
     }
     
