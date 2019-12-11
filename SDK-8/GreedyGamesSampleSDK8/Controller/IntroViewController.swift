@@ -23,13 +23,16 @@ class IntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Prepare.sharedInstance().delegate = self
-
         introCollectionView.register(UINib(nibName: "IntroCell", bundle: nil), forCellWithReuseIdentifier: Constants.INTRO_CELL)
         introCollectionView.delegate = self
         introCollectionView.dataSource = self
         showLoader()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Prepare.sharedInstance().delegate = self
     }
     
     @IBAction func pageCtrlAction(_ sender: UIPageControl) {

@@ -82,13 +82,14 @@ extension AppDelegate : CampaignStateListener{
     
     func onUnavailable() {
         Log.d(for: TAG, message: "Campaign UnAvailable")
-        self.greedyAgent?.refresh()
-//        if countDownTimer == nil{
-//            startTimer()
-//        }
+        self.timeInterVal = 5
+        if countDownTimer == nil{
+            startTimer()
+        }
         campaignState = .UNAVAILABLE
         ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
+//        self.greedyAgent?.refresh()
     }
     
     func onError(error: String) {

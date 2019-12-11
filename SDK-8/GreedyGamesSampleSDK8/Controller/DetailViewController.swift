@@ -28,7 +28,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Prepare.sharedInstance().delegate = self
         place = place.replacingOccurrences(of: "\n", with: "")
         registerCell()
         self.adView.alpha = 0
@@ -36,6 +35,8 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Prepare.sharedInstance().delegate = self
+
         closeDetailTemplate()
         switch appdelegate.campaignState{
         case .AVAILABLE:
@@ -48,7 +49,8 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func closebtnAction(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func templateBtnAction(_ sender: UIButton) {
@@ -63,7 +65,7 @@ class DetailViewController: UIViewController {
     }
     
     /// Helper method to updat the template
-    internal func updates(){
+    func updates(){
         if isGGCampaigAvailable{
             guard let image = appdelegate.getImageFromPath(forunitID: "float-4352") else{
                 detailPlaceTemplateImgView.image = UIImage(named: "")
@@ -160,7 +162,6 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
 
 extension DetailViewController : UpdateDelagate{
  
-    
     func updateAd(state: State){
         Log.d(for: TAG, message: "Update Called")
         print("DD0")

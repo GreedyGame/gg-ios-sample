@@ -30,7 +30,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Prepare.sharedInstance().delegate = self
         coachMarksController.dataSource = self
         coachMarksController.overlay.color = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.8)
         profileImgView.isUserInteractionEnabled = true
@@ -41,6 +40,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Prepare.sharedInstance().delegate = self
         pagectrl.numberOfPages = Prepare.sharedInstance().discoverlist.count
         userViewCollectionView.reloadData()
         discoverCollectionView.reloadData()
@@ -218,7 +218,8 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
         vc.place = object.name ?? ""
         vc.location = object.location ?? ""
         vc.image = object.image ?? ""
-        self.present(vc, animated: true, completion: nil)
+//        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
