@@ -45,13 +45,11 @@ class Prepare : NSObject{
                 userViewList.append(userViewObj)
             }
         }
-        
-        
     }
     
     func addAdData(){
         Log.d(for: TAG, message: "Appending ad Data")
-        if discoverlist.count == 5 || discoverlist.isEmpty{
+        if discoverlist.count == 5 {
             self.discoverlist.insert(prepareDiscoverAdData(), at: 3)
             self.discoverlist.insert(prepareDiscoverAdData(), at: 5)
             
@@ -62,14 +60,13 @@ class Prepare : NSObject{
         }
         
         delegate?.update()
-
     }
     
     func removeAdData() {
         Log.d(for: TAG, message: "Removing ad Data")
 
        
-        if discoverlist.count == 7{
+       /* if discoverlist.count == 7{
             self.discoverlist.remove(at: 3)
             self.discoverlist.remove(at: 5)
             self.placelist.remove(at: 3)
@@ -78,8 +75,15 @@ class Prepare : NSObject{
         
         if userViewList.count == 4{
             self.userViewList.remove(at: 1)
-        }
+        }*/
         
+        
+        
+        discoverlist.removeAll()
+        placelist.removeAll()
+        userViewList.removeAll()
+        
+        prePareData()
         delegate?.update()
     }
     

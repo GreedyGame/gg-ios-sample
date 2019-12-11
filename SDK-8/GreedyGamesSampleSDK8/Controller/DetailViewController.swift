@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     
     private final let TAG = "Detl_Vc"
 
+    @IBOutlet weak var detailplaceTemplateView: UIView!
     @IBOutlet weak var detailPlaceTemplateImgView: UIImageView!
     @IBOutlet weak var adView: UIView!
     @IBOutlet weak var closebtn: UIButton!
@@ -29,6 +30,7 @@ class DetailViewController: UIViewController {
         Prepare.sharedInstance().delegate = self
         place = place.replacingOccurrences(of: "\n", with: "")
         registerCell()
+        self.adView.alpha = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +42,7 @@ class DetailViewController: UIViewController {
             updates()
         case .UnAvailable:
             isGGCampaigAvailable = false
-            update()
+            updates()
         }
     }
 
@@ -128,7 +130,10 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
     
     
     private func showDetailTemplate(){
+        
+
         UIView.animate(withDuration: 0.5) {
+            self.adView.alpha = 1
             self.adView.transform = CGAffineTransform(translationX: 0, y: 50)
             self.isTemplateShown = true
         }
@@ -140,6 +145,7 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
    
     private func closeDetailTemplate(){
         UIView.animate(withDuration: 0.5) {
+            self.adView.alpha = 0
             self.adView.transform = CGAffineTransform(translationX: 0, y: -50)
             self.isTemplateShown = false
         }

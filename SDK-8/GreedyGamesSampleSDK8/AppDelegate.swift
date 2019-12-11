@@ -18,6 +18,8 @@ enum State{
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private final let TAG = "App_del"
+    
+    private var timeInterVal = 60
     var window: UIWindow?
     
     var greedyAgent: GreedyGameAgent?
@@ -96,7 +98,6 @@ extension AppDelegate : CampaignStateListener{
     
     func getImageFromPath(forunitID id:String) -> UIImage?{
         startTimer()
-
         Log.d(for: TAG, message: "trying to get the image for the unit id: \(id)")
         guard let imagePath = self.greedyAgent?.getPath(unitId: id),let image = UIImage(contentsOfFile: imagePath) else{
             return nil
@@ -107,9 +108,15 @@ extension AppDelegate : CampaignStateListener{
     private func startTimer(){
         Log.d(for: TAG, message: "Timer started")
 
-        Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { (timer) in
-            Log.d(for: self.TAG, message: "60 seconds done, Going to refresh the GreedyGame SDK")
-            self.greedyAgent?.refresh()
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+             self.timeInterVal -= 1
+             if self.timeInterVal == 0{
+                Log.d(for: self.TAG, message: "60 seconds done, Going to refresh the GreedyGame SDK")
+                timer.invalidate()
+                self.timeInterVal = 60
+                self.greedyAgent?.refresh()
+            }
+            
         }
     }
 

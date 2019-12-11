@@ -147,6 +147,7 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
                     cell.titlelbl.textColor = .orange
                     cell.titlelbl.font = UIFont.boldSystemFont(ofSize: 15)
                 }else{
+                    cell.titlelbl.textColor = .black
                     cell.titlelbl.font = UIFont.systemFont(ofSize: 10)
                 }
                 return cell
