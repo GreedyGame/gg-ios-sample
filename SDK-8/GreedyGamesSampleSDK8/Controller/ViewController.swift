@@ -30,8 +30,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        coachMarksController.dataSource = self
         Prepare.sharedInstance().delegate = self
+        coachMarksController.dataSource = self
         coachMarksController.overlay.color = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.8)
         profileImgView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(imageTap(tapGesture:)))
@@ -57,10 +57,6 @@ class ViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.coachMarksController.stop(immediately: true)
-    }
-    
-    @IBAction func textAdUnitbtnAction(_ sender: Any) {
-        (UIApplication.shared.delegate as! AppDelegate).greedyAgent?.showUII(unitId: "float-4353")
     }
     
     @IBAction func pagectrlAction(_ sender: UIPageControl) {
@@ -144,6 +140,7 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.USER_VIEW_CELL, for: indexPath) as! UserViewCell
                 cell.titlelbl?.text = obj.title
                 if indexPath.row == 0{
+                    
                     cell.titlelbl.textColor = .orange
                     cell.titlelbl.font = UIFont.boldSystemFont(ofSize: 15)
                 }else{
@@ -153,6 +150,7 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
                 return cell
             }else{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.AD_CELL, for: indexPath) as! AdCell
+                cell.adimageView.contentMode = .scaleToFill
                 cell.adimageView.image = (UIApplication.shared.delegate as! AppDelegate).getImageFromPath(forunitID: "float-4353") ?? UIImage(named: "")
                 return cell
             }
@@ -163,12 +161,14 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
         if collectionView == discoverCollectionView{
             return CGSize(width: collectionView.frame.size.width-10, height: collectionView.frame.size.height)
         }else if collectionView ==  newPlacesColletctionView{
-            return CGSize(width: collectionView.frame.size.width/3 - 10, height: collectionView.frame.size.height)
+//            return CGSize(width: collectionView.frame.size.width/3 - 10, height: collectionView.frame.size.height)
+            return CGSize(width: 81, height: 117)
+
         }else{
             if indexPath.row == 1{
-                return CGSize(width: 100, height: 50)
+                return CGSize(width: 100, height: 25)
             }else{
-                return CGSize(width: collectionView.frame.size.width/4, height: 50)
+                return CGSize(width: collectionView.frame.size.width/4, height: 25)
             }
         }
     }
@@ -303,8 +303,9 @@ extension ViewController : CoachMarksControllerDataSource, CoachMarksControllerD
 
 extension ViewController : UpdateDelagate{
     
-    func update(){
+    func updateAd(state: State){
       Log.d(for: TAG, message: "Update Called")
+      view.makeToast(state.rawValue)
       updateVC()
     }
     

@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     var image = ""
     var isGGCampaigAvailable = false
     var isTemplateShown = false
+    var campignState:State = .UNAVAILABLE
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
@@ -37,10 +38,10 @@ class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         closeDetailTemplate()
         switch appdelegate.campaignState{
-        case .Available:
+        case .AVAILABLE:
             isGGCampaigAvailable = true
             updates()
-        case .UnAvailable:
+        case .UNAVAILABLE:
             isGGCampaigAvailable = false
             updates()
         }
@@ -89,14 +90,14 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
         cell.locationlbl.text = location
         
         switch appdelegate.campaignState{
-        case .Available:
+        case .AVAILABLE:
             if let image = appdelegate.getImageFromPath(forunitID: "float-4352"){
                cell.templateImgView.image = image
             }else{
                 cell.templateImgView.image = UIImage(named: "")
             }
 
-        case .UnAvailable:
+        case .UNAVAILABLE:
             cell.templateImgView.image = UIImage(named: "")
         }
         
@@ -107,40 +108,45 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
         return 800
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        print("Begin draging : \(scrollView.contentOffset)")
-    }
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         print("Scroll : \(scrollView.contentOffset.y)")
         print("isScrollTop : \(scrollView.scrollsToTop)")
-        if !scrollView.scrollsToTop{
-            return
-        }
+//        if !scrollView.scrollsToTop{
+//            return
+//        }
+        print("Dss0")
+        
         if scrollView.contentOffset.y > 200{
-            if !isTemplateShown{
-                showDetailTemplate()
+            print("Dss1")
+
+            if appdelegate.campaignState == .AVAILABLE{
+                print("Dss2")
+
+                if !isTemplateShown{
+                    print("Dss2")
+
+                    showDetailTemplate()
+                }else{
+                    closeDetailTemplate()
+                }
             }else{
-                closeDetailTemplate()
+                if isTemplateShown{
+                    closeDetailTemplate()
+                }
             }
         }else{
-            closeDetailTemplate()
+            
+//            closeDetailTemplate()
         }
     }
     
     
     private func showDetailTemplate(){
-        
-
         UIView.animate(withDuration: 0.5) {
             self.adView.alpha = 1
             self.adView.transform = CGAffineTransform(translationX: 0, y: 50)
             self.isTemplateShown = true
         }
-//        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
-//            self.adView.transform = CGAffineTransform(translationX: 0, y: 50)
-//            self.isTemplateShown = true
-//        }, completion: nil)
     }
    
     private func closeDetailTemplate(){
@@ -149,25 +155,30 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
             self.adView.transform = CGAffineTransform(translationX: 0, y: -50)
             self.isTemplateShown = false
         }
-//        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
-//            self.adView.transform = CGAffineTransform(translationX: 0, y: -50)
-//            self.isTemplateShown = false
-//        }, completion: nil)
     }
 }
 
 extension DetailViewController : UpdateDelagate{
  
     
-    func update(){
+    func updateAd(state: State){
         Log.d(for: TAG, message: "Update Called")
+        print("DD0")
 
-        content_tableView.reloadData()
-        self.view.setNeedsLayout()
-        if appdelegate.campaignState == .Available{
+        view.makeToast(state.rawValue)
+        
+        campignState = state
+
+//        self.view.setNeedsLayout()
+    
+        if state == .AVAILABLE{
+            print("DD1")
             detailPlaceTemplateImgView.image = appdelegate.getImageFromPath(forunitID: "float-4352")
         }else{
+            print("DD2")
+
             if isTemplateShown{
+                print("DD3")
                 detailPlaceTemplateImgView.image = UIImage(named: "")
                 closeDetailTemplate()
             }

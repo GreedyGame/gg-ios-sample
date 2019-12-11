@@ -53,13 +53,13 @@ class Prepare : NSObject{
             self.discoverlist.insert(prepareDiscoverAdData(), at: 3)
             self.discoverlist.insert(prepareDiscoverAdData(), at: 5)
             
-            self.placelist.insert(preparePlaceAdData(), at: 3)
+            self.placelist.insert(preparePlaceAdData(), at: 1)
             self.placelist.insert(preparePlaceAdData(), at: 5)
             
             self.userViewList.insert(prepareUserViewAdData(), at: 1)
         }
         
-        delegate?.update()
+        delegate?.updateAd(state: .AVAILABLE)
     }
     
     func removeAdData() {
@@ -84,7 +84,8 @@ class Prepare : NSObject{
         userViewList.removeAll()
         
         prePareData()
-        delegate?.update()
+        delegate?.updateAd(state: .UNAVAILABLE)
+        
     }
     
     private func prepareDiscoverAdData() -> Discover{

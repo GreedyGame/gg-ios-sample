@@ -31,14 +31,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="81" height="117"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s1.png" translatesAutoresizingMaskIntoConstraints="NO" id="w2y-lF-hdE">
-                                <rect key="frame" x="0.0" y="0.0" width="61" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="81" height="79.5"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CauseWay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N44-SL-3eT">
-                                <rect key="frame" x="5" y="80" width="71" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="CauseWay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N44-SL-3eT">
+                                <rect key="frame" x="5" y="84.5" width="71" height="9.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="10"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Ireland" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3m8-Rz-NUo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" text="Ireland" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3m8-Rz-NUo">
                                 <rect key="frame" x="5" y="97" width="71" height="15"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="9"/>
                                 <nil key="highlightedColor"/>
@@ -49,14 +49,14 @@
                             <constraint firstAttribute="trailing" secondItem="3m8-Rz-NUo" secondAttribute="trailing" constant="5" id="37L-I6-8o9"/>
                             <constraint firstItem="w2y-lF-hdE" firstAttribute="leading" secondItem="nuR-AL-hv5" secondAttribute="leading" id="5Go-ZF-eG5"/>
                             <constraint firstAttribute="bottom" secondItem="3m8-Rz-NUo" secondAttribute="bottom" constant="5" id="9Dm-LY-dY0"/>
-                            <constraint firstItem="w2y-lF-hdE" firstAttribute="trailing" secondItem="nuR-AL-hv5" secondAttribute="trailing" multiplier="0.75" id="CjZ-2R-dRB"/>
+                            <constraint firstItem="w2y-lF-hdE" firstAttribute="trailing" secondItem="nuR-AL-hv5" secondAttribute="trailing" id="CjZ-2R-dRB"/>
                             <constraint firstItem="w2y-lF-hdE" firstAttribute="top" secondItem="nuR-AL-hv5" secondAttribute="top" id="Iav-iD-j7i"/>
-                            <constraint firstItem="N44-SL-3eT" firstAttribute="top" secondItem="w2y-lF-hdE" secondAttribute="bottom" constant="10" id="W2c-E2-00f"/>
+                            <constraint firstItem="N44-SL-3eT" firstAttribute="top" secondItem="w2y-lF-hdE" secondAttribute="bottom" constant="5" id="W2c-E2-00f"/>
                             <constraint firstItem="N44-SL-3eT" firstAttribute="leading" secondItem="nuR-AL-hv5" secondAttribute="leading" constant="5" id="ZTE-DP-J1O"/>
                             <constraint firstAttribute="trailing" secondItem="N44-SL-3eT" secondAttribute="trailing" constant="5" id="b7Z-V6-eUw"/>
                             <constraint firstItem="3m8-Rz-NUo" firstAttribute="leading" secondItem="nuR-AL-hv5" secondAttribute="leading" constant="5" id="lXt-86-KhG"/>
                             <constraint firstItem="3m8-Rz-NUo" firstAttribute="top" secondItem="N44-SL-3eT" secondAttribute="bottom" constant="3" id="rK8-p7-q6M"/>
-                            <constraint firstItem="w2y-lF-hdE" firstAttribute="bottom" secondItem="nuR-AL-hv5" secondAttribute="bottom" multiplier="0.6" id="zWI-6i-drW"/>
+                            <constraint firstItem="w2y-lF-hdE" firstAttribute="bottom" secondItem="nuR-AL-hv5" secondAttribute="bottom" multiplier="0.68" id="zWI-6i-drW"/>
                         </constraints>
                     </view>
                 </subviews>

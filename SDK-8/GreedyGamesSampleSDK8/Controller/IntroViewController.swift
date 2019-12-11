@@ -103,8 +103,9 @@ extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSo
 }
 
 extension IntroViewController : UpdateDelagate{
-    func update() {
+    func updateAd(state: State) {
         Log.d(for: TAG, message: "Update Called")
+        view.makeToast(state.rawValue)
         hideLoader()
     }
 }

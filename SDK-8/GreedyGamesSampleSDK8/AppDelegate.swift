@@ -9,9 +9,9 @@
 import UIKit
 import greedygame
 
-enum State{
-    case Available
-    case UnAvailable
+enum State : String{
+    case AVAILABLE = "Available"
+    case UNAVAILABLE = "UnAvailable"
 }
 
 @UIApplicationMain
@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var greedyAgent: GreedyGameAgent?
     var ggDelegate : GGCampaignDelegate?
-    var campaignState : State = .Available
+    var campaignState : State = .AVAILABLE
     private var timeInterVal = 65
+    
     private var countDownTimer : Timer?
     private var isTimerRunning = false
     
@@ -74,21 +75,26 @@ extension AppDelegate : CampaignStateListener{
     
     func onAvailable(campaignId: String) {
         Log.d(for: TAG, message: "Campaign Available : \(campaignId)")
-        startTimer()
         ggDelegate?.GGAvailable()
+        campaignState  = .AVAILABLE
         Prepare.sharedInstance().addAdData()
     }
     
     func onUnavailable() {
         Log.d(for: TAG, message: "Campaign UnAvailable")
-        startTimer()
+        self.greedyAgent?.refresh()
+//        if countDownTimer == nil{
+//            startTimer()
+//        }
+        campaignState = .UNAVAILABLE
         ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
     }
     
     func onError(error: String) {
         Log.d(for: TAG, message: "Campaign Error: \(error)")
-        startTimer()
+        campaignState = .UNAVAILABLE
+        self.greedyAgent?.refresh()
         ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
     }
@@ -99,10 +105,9 @@ extension AppDelegate : CampaignStateListener{
     }
     
     func getImageFromPath(forunitID id:String) -> UIImage?{
-        /*if !isTimerStarted{
+        if countDownTimer == nil{
             startTimer()
-            isTimerStarted = true
-        }*/
+        }
         Log.d(for: TAG, message: "trying to get the image for the unit id: \(id)")
         guard let imagePath = self.greedyAgent?.getPath(unitId: id),let image = UIImage(contentsOfFile: imagePath) else{
             return nil
@@ -110,21 +115,23 @@ extension AppDelegate : CampaignStateListener{
         return image
     }
     
-    private func startTimer(){
-        Log.d(for: TAG, message: "Timer started")
+    func startTimer(){
         
-        self.countDownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-            self.timeInterVal -= 1
-            print("My ctn Timer : \(self.timeInterVal)")
-            if self.timeInterVal == 0{
-                Log.d(for: self.TAG, message: "60 seconds done, Going to refresh the GreedyGame SDK")
-                self.isTimerRunning = false
-                self.countDownTimer!.invalidate()
-                self.countDownTimer = nil
-                self.timeInterVal = 65
-                self.greedyAgent?.refresh()
-            }
-        })
+        if countDownTimer == nil{
+            Log.d(for: TAG, message: "Timer started")
+
+            self.countDownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+                self.timeInterVal -= 1
+                print("My ctn Timer : \(self.timeInterVal)")
+                if self.timeInterVal == 0{
+                    Log.d(for: self.TAG, message: "60 seconds done, Going to refresh the GreedyGame SDK")
+                    self.countDownTimer!.invalidate()
+                    self.countDownTimer = nil
+                    self.timeInterVal = 65
+                    self.greedyAgent?.refresh()
+                }
+            })
+        }
     }
 
 }

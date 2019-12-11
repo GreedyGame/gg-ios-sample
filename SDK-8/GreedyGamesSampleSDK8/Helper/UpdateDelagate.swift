@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol UpdateDelagate {
-    func update()
+protocol UpdateDelagate {
+    func updateAd(state: State)
 }
