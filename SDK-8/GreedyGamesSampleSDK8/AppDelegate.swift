@@ -60,8 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+// MARK: - GreedyGame campaign callbacks and helper methods
 extension AppDelegate : CampaignStateListener{
     
+    
+    /// loadSDK will initialize the GreedyGameSDK with gameid `39254904`.
     private func loadSDK(){
         Log.d(for: TAG, message: "Initializing GG SDK")
         greedyAgent = GreedyGameAgent.Builder()
@@ -73,6 +77,8 @@ extension AppDelegate : CampaignStateListener{
         greedyAgent?.initialize()
     }
     
+
+    //    MARK: CampaignStateListener Callabck Methods
     func onAvailable(campaignId: String) {
         Log.d(for: TAG, message: "Campaign Available : \(campaignId)")
         ggDelegate?.GGAvailable()
@@ -89,7 +95,7 @@ extension AppDelegate : CampaignStateListener{
         campaignState = .UNAVAILABLE
         ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
-//        self.greedyAgent?.refresh()
+        //self.greedyAgent?.refresh()
     }
     
     func onError(error: String) {
@@ -100,11 +106,21 @@ extension AppDelegate : CampaignStateListener{
         Prepare.sharedInstance().removeAdData()
     }
     
+    //    MARK: Helper Methods
+    
+    /// Helper method to show open GreedyGame Engagement window
+    ///
+    /// - Parameter id: respective unit id of the template
     func openGGEngageMentWindow(forunitID id:String){
         Log.d(for: TAG, message: "showing engagement window for the unit id: \(id)")
         self.greedyAgent?.showUII(unitId: id)
     }
     
+    
+    /// Helper method to get the image for the give unit id
+    /// This method will get the image path for the template image to be stored in locally and will converse the image from the path and will return that converted image from the image path for the unit id
+    /// - Parameter id: unit id of the template
+    /// - Returns: image
     func getImageFromPath(forunitID id:String) -> UIImage?{
         if countDownTimer == nil{
             startTimer()
@@ -116,6 +132,8 @@ extension AppDelegate : CampaignStateListener{
         return image
     }
     
+    
+    /// Helper method of CountDown Timer
     func startTimer(){
         
         if countDownTimer == nil{

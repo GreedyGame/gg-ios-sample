@@ -48,6 +48,7 @@ class DetailViewController: UIViewController {
         }
     }
 
+    //   MARK: Button action methods
     @IBAction func closebtnAction(_ sender: UIButton) {
 //        self.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
@@ -57,7 +58,8 @@ class DetailViewController: UIViewController {
         appdelegate.openGGEngageMentWindow(forunitID: "float-4352")
     }
 
-   
+    
+    /// Helper method to register the tableview cell
     private func registerCell(){
         content_tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: Constants.DETAIL_CELL)
         content_tableView.delegate = self
@@ -79,6 +81,7 @@ class DetailViewController: UIViewController {
 }
 
 
+// MARK: Tableview Delegate
 extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -143,6 +146,7 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     
+    /// Helper Method to appear the sliding template
     private func showDetailTemplate(){
         UIView.animate(withDuration: 0.5) {
             self.adView.alpha = 1
@@ -150,7 +154,8 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
             self.isTemplateShown = true
         }
     }
-   
+    
+    /// Helper Method to disappear the sliding template
     private func closeDetailTemplate(){
         UIView.animate(withDuration: 0.5) {
             self.adView.alpha = 0
@@ -160,30 +165,23 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
     }
 }
 
+// MARK: UpdateDelegate
 extension DetailViewController : UpdateDelagate{
  
     func updateAd(state: State){
         Log.d(for: TAG, message: "Update Called")
-        print("DD0")
-
-        view.makeToast(state.rawValue)
-        
+        view.makeToast("Campaign \(state.rawValue)")
         campignState = state
-
-//        self.view.setNeedsLayout()
     
         if state == .AVAILABLE{
-            print("DD1")
             detailPlaceTemplateImgView.image = appdelegate.getImageFromPath(forunitID: "float-4352")
         }else{
-            print("DD2")
-
             if isTemplateShown{
-                print("DD3")
                 detailPlaceTemplateImgView.image = UIImage(named: "")
                 closeDetailTemplate()
             }
         }
+        self.content_tableView.reloadData()
     }
     
 }

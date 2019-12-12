@@ -40,12 +40,6 @@
 		188C51092397B07D00D27623 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 188C51032397B07D00D27623 /* SIL Open Font License.txt */; };
 		188C510B2397B60200D27623 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C510A2397B60200D27623 /* Constants.swift */; };
 		188C510D2397C9F100D27623 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C510C2397C9F100D27623 /* DetailViewController.swift */; };
-		18B7145C2398B9FB0096DABC /* imageprocessing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B714592398B9F90096DABC /* imageprocessing.framework */; };
-		18B7145D2398B9FB0096DABC /* greedygame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B7145A2398B9FB0096DABC /* greedygame.framework */; };
-		18B7145F2398BA0B0096DABC /* commons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B7145B2398B9FB0096DABC /* commons.framework */; };
-		18B714602398BA0B0096DABC /* commons.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18B7145B2398B9FB0096DABC /* commons.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		18B714622398BA0B0096DABC /* greedygame.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18B7145A2398B9FB0096DABC /* greedygame.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		18B714642398BA0B0096DABC /* imageprocessing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18B714592398B9F90096DABC /* imageprocessing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18B714682398D9F90096DABC /* IntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B714662398D9F90096DABC /* IntroCell.swift */; };
 		18B714692398D9FA0096DABC /* IntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B714672398D9F90096DABC /* IntroCell.xib */; };
 		18B7146B2398DBAD0096DABC /* GG_ 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B7146A2398DBAC0096DABC /* GG_ 1.png */; };
@@ -70,9 +64,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18B714622398BA0B0096DABC /* greedygame.framework in Embed Frameworks */,
-				18B714602398BA0B0096DABC /* commons.framework in Embed Frameworks */,
-				18B714642398BA0B0096DABC /* imageprocessing.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,9 +106,6 @@
 		188C51032397B07D00D27623 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
 		188C510A2397B60200D27623 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		188C510C2397C9F100D27623 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		18B714592398B9F90096DABC /* imageprocessing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = imageprocessing.framework; sourceTree = "<group>"; };
-		18B7145A2398B9FB0096DABC /* greedygame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = greedygame.framework; sourceTree = "<group>"; };
-		18B7145B2398B9FB0096DABC /* commons.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = commons.framework; sourceTree = "<group>"; };
 		18B714662398D9F90096DABC /* IntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCell.swift; sourceTree = "<group>"; };
 		18B714672398D9F90096DABC /* IntroCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCell.xib; sourceTree = "<group>"; };
 		18B7146A2398DBAC0096DABC /* GG_ 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GG_ 1.png"; sourceTree = "<group>"; };
@@ -142,9 +130,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18B7145F2398BA0B0096DABC /* commons.framework in Frameworks */,
-				18B7145D2398B9FB0096DABC /* greedygame.framework in Frameworks */,
-				18B7145C2398B9FB0096DABC /* imageprocessing.framework in Frameworks */,
 				F3AFBE37B988ED0A308042A0 /* Pods_GreedyGamesSampleSDK8.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,18 +158,15 @@
 		188C50CA239792A700D27623 /* GreedyGamesSampleSDK8 */ = {
 			isa = PBXGroup;
 			children = (
+				18D01990239F61D000789991 /* Controller */,
+				188C50F2239798AB00D27623 /* CustomCell */,
+				18D01993239F625900789991 /* StoryBoard */,
 				18D01995239F9D0200789991 /* Manager */,
 				18D01992239F622B00789991 /* Helper */,
 				18D01991239F620600789991 /* Utills */,
-				18D01990239F61D000789991 /* Controller */,
 				18D01994239F628C00789991 /* Model */,
 				188C50FD2397B06300D27623 /* Font */,
-				188C50F2239798AB00D27623 /* CustomCell */,
 				188C50DD239792B200D27623 /* Images */,
-				18D01993239F625900789991 /* StoryBoard */,
-				18B7145B2398B9FB0096DABC /* commons.framework */,
-				18B7145A2398B9FB0096DABC /* greedygame.framework */,
-				18B714592398B9F90096DABC /* imageprocessing.framework */,
 				188C50CB239792A700D27623 /* AppDelegate.swift */,
 				188C50D2239792AB00D27623 /* Assets.xcassets */,
 				188C50D7239792AB00D27623 /* Info.plist */,

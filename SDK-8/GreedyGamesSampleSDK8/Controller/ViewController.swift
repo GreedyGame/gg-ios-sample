@@ -59,10 +59,14 @@ class ViewController: UIViewController {
         self.coachMarksController.stop(immediately: true)
     }
     
+    //    MARK: IBAction method
     @IBAction func pagectrlAction(_ sender: UIPageControl) {
     }
+
     
-    
+    /// Tap Gesuture action mathod
+    ///
+    /// - Parameter tapGesture: current tap gesture
     @objc func imageTap(tapGesture:UITapGestureRecognizer){
         if !DefaultHelper.get(value: Constants.PRO_COACH_MARK){
             self.coachMarksController.start(on: self)
@@ -70,6 +74,10 @@ class ViewController: UIViewController {
         }
     }
     
+
+    //    MARK: Helper Methods
+    
+    /// Helper method to register nib for the collectionView
     private func registerCell(){
         discoverCollectionView.register(UINib(nibName: "DiscoverCell", bundle: nil), forCellWithReuseIdentifier: Constants.DISCOVER_CELL)
         newPlacesColletctionView.register(UINib(nibName: "PlacesCell", bundle: nil), forCellWithReuseIdentifier: Constants.PLACE_CELL)
@@ -79,7 +87,6 @@ class ViewController: UIViewController {
         discoverCollectionView.register(UINib(nibName: "AdCell", bundle: nil), forCellWithReuseIdentifier: Constants.AD_CELL)
         newPlacesColletctionView.register(UINib(nibName: "AdCell", bundle: nil), forCellWithReuseIdentifier: Constants.AD_CELL)
         userViewCollectionView.register(UINib(nibName: "AdCell", bundle: nil), forCellWithReuseIdentifier: Constants.AD_CELL)
-        
         
         discoverCollectionView.delegate = self
         discoverCollectionView.dataSource = self
@@ -91,6 +98,7 @@ class ViewController: UIViewController {
     
 }
 
+// MARK: CollectionView Delegate and Datasource
 extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -224,6 +232,7 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
     
 }
 
+// MARK: CoachMarks Delegate and Datasource
 extension ViewController : CoachMarksControllerDataSource, CoachMarksControllerDelegate{
     
     func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
@@ -302,11 +311,12 @@ extension ViewController : CoachMarksControllerDataSource, CoachMarksControllerD
     }
 }
 
+// MARK: UpdateDelegate
 extension ViewController : UpdateDelagate{
     
     func updateAd(state: State){
       Log.d(for: TAG, message: "Update Called")
-      view.makeToast(state.rawValue)
+      view.makeToast("Campaign \(state.rawValue)")
       updateVC()
     }
     

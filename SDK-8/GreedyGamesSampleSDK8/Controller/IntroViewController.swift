@@ -35,6 +35,7 @@ class IntroViewController: UIViewController {
         Prepare.sharedInstance().delegate = self
     }
     
+    //    MARK:  IBAction methods
     @IBAction func pageCtrlAction(_ sender: UIPageControl) {
     }
     
@@ -42,18 +43,9 @@ class IntroViewController: UIViewController {
         Utill.openSafari(with: Constants.GG_URL)
     }
     
+    //    MARK: Helper Methods
     
-    private func hideLoader(){
-        activityindicator.isHidden = true
-        activityindicator.stopAnimating()
-        UIView.animate(withDuration: 0.1) {
-            self.knowMorebtn.alpha = 1
-            self.knowMorebtn.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            self.seeDemoBtn.alpha = 1
-            self.seeDemoBtn.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        }
-    }
-    
+    /// Helper method to show the Activity Indicator for campaign Loading
     private func showLoader(){
         activityindicator.isHidden = false
         activityindicator.startAnimating()
@@ -64,19 +56,22 @@ class IntroViewController: UIViewController {
             self.seeDemoBtn.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
         }
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    /// Helper method to hide the Activity Indicator for once GreedyGame SDK loaded and gets the campaign state callback
+    private func hideLoader(){
+        activityindicator.isHidden = true
+        activityindicator.stopAnimating()
+        UIView.animate(withDuration: 0.1) {
+            self.knowMorebtn.alpha = 1
+            self.knowMorebtn.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self.seeDemoBtn.alpha = 1
+            self.seeDemoBtn.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }
     }
-    */
-
 }
 
+
+// MARK: - CollectionView Delegate, DataSource, DelegateFlowLayout
 extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -105,10 +100,12 @@ extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
+
+// MARK: - UpdateDelagate
 extension IntroViewController : UpdateDelagate{
     func updateAd(state: State) {
         Log.d(for: TAG, message: "Update Called")
-        view.makeToast(state.rawValue)
+        view.makeToast("Campaign \(state.rawValue)")
         hideLoader()
     }
 }

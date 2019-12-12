@@ -6,6 +6,7 @@
 //  Copyright © 2019 GreedyGame. All rights reserved.
 //
 
+/** Constants will hold the cell identifier and othe constant value will be used in whole app*/
 import Foundation
 
 class Constants{

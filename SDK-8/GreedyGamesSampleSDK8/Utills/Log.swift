@@ -6,6 +6,8 @@
 //  Copyright © 2019 GreedyGame. All rights reserved.
 //
 
+
+/** Custom class to print the logs in Console with some defined format/structure*/
 import Foundation
 
 class Log{

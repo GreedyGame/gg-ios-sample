@@ -6,6 +6,8 @@
 //  Copyright © 2019 GreedyGame. All rights reserved.
 //
 
+/** MyData holds the static data.Prepare class use these datas to create object with ad depends on the Campaign State*/
+
 import Foundation
 
 class MyData{

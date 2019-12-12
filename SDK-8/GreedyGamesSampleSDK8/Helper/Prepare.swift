@@ -6,6 +6,9 @@
 //  Copyright © 2019 GreedyGame. All rights reserved.
 //
 
+/** Prepare class will be responsible to prepare the app datas with ad datas according to the Campaign State and give the callback to the current viewcontroller to update the screen*/
+
+
 import Foundation
 
 class Prepare : NSObject{
