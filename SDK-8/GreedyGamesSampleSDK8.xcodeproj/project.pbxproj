@@ -54,16 +54,25 @@
 		18D01999239FA2A000789991 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D01998239FA2A000789991 /* Log.swift */; };
 		18D0199B239FAF6100789991 /* UpdateDelagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0199A239FAF6100789991 /* UpdateDelagate.swift */; };
 		18D0199D23A0D0AD00789991 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0199C23A0D0AC00789991 /* Toast.swift */; };
+		18D019C423A2206000789991 /* commons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D019BF23A2204700789991 /* commons.framework */; };
+		18D019C523A2206000789991 /* commons.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18D019BF23A2204700789991 /* commons.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18D019C623A2206000789991 /* greedygame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D019C023A2204900789991 /* greedygame.framework */; };
+		18D019C723A2206000789991 /* greedygame.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18D019C023A2204900789991 /* greedygame.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18D019C823A2206000789991 /* imageprocessing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D019BE23A2204700789991 /* imageprocessing.framework */; };
+		18D019C923A2206000789991 /* imageprocessing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18D019BE23A2204700789991 /* imageprocessing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F3AFBE37B988ED0A308042A0 /* Pods_GreedyGamesSampleSDK8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7442E0FFEBCDF39208DCB37 /* Pods_GreedyGamesSampleSDK8.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		18B714652398BA0C0096DABC /* Embed Frameworks */ = {
+		18D019CA23A2206200789991 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				18D019C723A2206000789991 /* greedygame.framework in Embed Frameworks */,
+				18D019C523A2206000789991 /* commons.framework in Embed Frameworks */,
+				18D019C923A2206000789991 /* imageprocessing.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +129,9 @@
 		18D01998239FA2A000789991 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		18D0199A239FAF6100789991 /* UpdateDelagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelagate.swift; sourceTree = "<group>"; };
 		18D0199C23A0D0AC00789991 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		18D019BE23A2204700789991 /* imageprocessing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = imageprocessing.framework; path = ../imageprocessing.framework; sourceTree = "<group>"; };
+		18D019BF23A2204700789991 /* commons.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = commons.framework; path = ../commons.framework; sourceTree = "<group>"; };
+		18D019C023A2204900789991 /* greedygame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = greedygame.framework; path = ../greedygame.framework; sourceTree = "<group>"; };
 		7A0B57530A530696B55FD5EF /* Pods-GreedyGamesSampleSDK8.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreedyGamesSampleSDK8.debug.xcconfig"; path = "Target Support Files/Pods-GreedyGamesSampleSDK8/Pods-GreedyGamesSampleSDK8.debug.xcconfig"; sourceTree = "<group>"; };
 		A7442E0FFEBCDF39208DCB37 /* Pods_GreedyGamesSampleSDK8.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreedyGamesSampleSDK8.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FBF7D90418C853709E5511 /* Pods-GreedyGamesSampleSDK8.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreedyGamesSampleSDK8.release.xcconfig"; path = "Target Support Files/Pods-GreedyGamesSampleSDK8/Pods-GreedyGamesSampleSDK8.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,7 +142,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D019C623A2206000789991 /* greedygame.framework in Frameworks */,
 				F3AFBE37B988ED0A308042A0 /* Pods_GreedyGamesSampleSDK8.framework in Frameworks */,
+				18D019C823A2206000789991 /* imageprocessing.framework in Frameworks */,
+				18D019C423A2206000789991 /* commons.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +173,7 @@
 		188C50CA239792A700D27623 /* GreedyGamesSampleSDK8 */ = {
 			isa = PBXGroup;
 			children = (
+				18D0199E23A21F9100789991 /* GG_Frameworks */,
 				18D01990239F61D000789991 /* Controller */,
 				188C50F2239798AB00D27623 /* CustomCell */,
 				18D01993239F625900789991 /* StoryBoard */,
@@ -282,6 +298,16 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		18D0199E23A21F9100789991 /* GG_Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18D019BF23A2204700789991 /* commons.framework */,
+				18D019C023A2204900789991 /* greedygame.framework */,
+				18D019BE23A2204700789991 /* imageprocessing.framework */,
+			);
+			path = GG_Frameworks;
+			sourceTree = "<group>";
+		};
 		63EB55F888F0464BB003A6AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,8 +336,8 @@
 				188C50C4239792A700D27623 /* Sources */,
 				188C50C5239792A700D27623 /* Frameworks */,
 				188C50C6239792A700D27623 /* Resources */,
-				18B714652398BA0C0096DABC /* Embed Frameworks */,
 				FEBF833E753988646313F4D7 /* [CP] Embed Pods Frameworks */,
+				18D019CA23A2206200789991 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -610,6 +636,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GreedyGamesSampleSDK8",
+					"$(PROJECT_DIR)/GreedyGamesSampleSDK8/Images",
 				);
 				INFOPLIST_FILE = GreedyGamesSampleSDK8/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -633,6 +660,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GreedyGamesSampleSDK8",
+					"$(PROJECT_DIR)/GreedyGamesSampleSDK8/Images",
 				);
 				INFOPLIST_FILE = GreedyGamesSampleSDK8/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
