@@ -11,7 +11,6 @@ import Instructions
 
 class ViewController: UIViewController {
     
-
     private final let TAG = "Main_Vc"
    
     @IBOutlet weak var textAdUnit: UIView!
@@ -20,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var discoverCollectionView: UICollectionView!
     @IBOutlet weak var newPlacesColletctionView: UICollectionView!
     @IBOutlet weak var userViewCollectionView: UICollectionView!
-    @IBOutlet weak var textAdUnitWidth: NSLayoutConstraint!
     @IBOutlet weak var pagectrl: UIPageControl!
     
     let coachMarksController = CoachMarksController()
@@ -226,8 +224,7 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource, 
         vc.place = object.name ?? ""
         vc.location = object.location ?? ""
         vc.image = object.image ?? ""
-//        self.present(vc, animated: true, completion: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

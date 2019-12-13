@@ -64,7 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - GreedyGame campaign callbacks and helper methods
 extension AppDelegate : CampaignStateListener{
     
-    
     /// loadSDK will initialize the GreedyGameSDK with gameid `39254904`.
     private func loadSDK(){
         Log.d(for: TAG, message: "Initializing GG SDK")
@@ -95,7 +94,6 @@ extension AppDelegate : CampaignStateListener{
         campaignState = .UNAVAILABLE
         ggDelegate?.GGUnAvailable()
         Prepare.sharedInstance().removeAdData()
-        //self.greedyAgent?.refresh()
     }
     
     func onError(error: String) {
@@ -135,15 +133,12 @@ extension AppDelegate : CampaignStateListener{
     
     /// Helper method of CountDown Timer
     func startTimer(){
-        
         if countDownTimer == nil{
             Log.d(for: TAG, message: "Timer started")
 
             self.countDownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
                 self.timeInterVal -= 1
-                print("My ctn Timer : \(self.timeInterVal)")
                 if self.timeInterVal == 0{
-                    Log.d(for: self.TAG, message: "60 seconds done, Going to refresh the GreedyGame SDK")
                     self.countDownTimer!.invalidate()
                     self.countDownTimer = nil
                     self.timeInterVal = 65

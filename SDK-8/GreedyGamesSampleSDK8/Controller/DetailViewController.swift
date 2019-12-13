@@ -23,8 +23,10 @@ class DetailViewController: UIViewController {
     var image = ""
     var isGGCampaigAvailable = false
     var isTemplateShown = false
-    var campignState:State = .UNAVAILABLE
+    var campaignState:State = .UNAVAILABLE
     let appdelegate = UIApplication.shared.delegate as! AppDelegate
+    var cellTemplate : UIImageView?
+    var yOffsetValue = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +52,7 @@ class DetailViewController: UIViewController {
 
     //   MARK: Button action methods
     @IBAction func closebtnAction(_ sender: UIButton) {
-//        self.dismiss(animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func templateBtnAction(_ sender: UIButton) {
@@ -89,24 +90,31 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.DETAIL_CELL, for: indexPath) as! DetailCell
-        cell.mainImage?.image = UIImage(named: image)
-        cell.placelbl.text = place
-        cell.locationlbl.text = location
         
-        switch appdelegate.campaignState{
-        case .AVAILABLE:
+        if appdelegate.campaignState == .AVAILABLE{
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.DETAIL_CELL, for: indexPath) as! DetailCell
+            cell.mainImage?.image = UIImage(named: image)
+            cell.placelbl.text = place
+            cell.locationlbl.text = location
+
+            cellTemplate =  cell.templateImgView
+
             if let image = appdelegate.getImageFromPath(forunitID: "float-4352"){
                cell.templateImgView.image = image
             }else{
                 cell.templateImgView.image = UIImage(named: "")
             }
-
-        case .UNAVAILABLE:
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.DETAIL_CELL, for: indexPath) as! DetailCell
+            cell.mainImage?.image = UIImage(named: image)
+            cell.placelbl.text = place
+            cell.locationlbl.text = location
+            cellTemplate = cell.templateImgView
             cell.templateImgView.image = UIImage(named: "")
+            return cell
         }
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -114,22 +122,11 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("Scroll : \(scrollView.contentOffset.y)")
-        print("isScrollTop : \(scrollView.scrollsToTop)")
-//        if !scrollView.scrollsToTop{
-//            return
-//        }
-        print("Dss0")
         
         if scrollView.contentOffset.y > 200{
-            print("Dss1")
-
+            yOffsetValue = Int(scrollView.contentOffset.y)
             if appdelegate.campaignState == .AVAILABLE{
-                print("Dss2")
-
                 if !isTemplateShown{
-                    print("Dss2")
-
                     showDetailTemplate()
                 }else{
                     closeDetailTemplate()
@@ -140,11 +137,9 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
                 }
             }
         }else{
-            
-//            closeDetailTemplate()
+            closeDetailTemplate()
         }
     }
-    
     
     /// Helper Method to appear the sliding template
     private func showDetailTemplate(){
@@ -171,17 +166,24 @@ extension DetailViewController : UpdateDelagate{
     func updateAd(state: State){
         Log.d(for: TAG, message: "Update Called")
         view.makeToast("Campaign \(state.rawValue)")
-        campignState = state
+        campaignState = state
     
         if state == .AVAILABLE{
             detailPlaceTemplateImgView.image = appdelegate.getImageFromPath(forunitID: "float-4352")
-        }else{
-            if isTemplateShown{
-                detailPlaceTemplateImgView.image = UIImage(named: "")
+            if yOffsetValue > 200{
+                showDetailTemplate()
+            }else{
                 closeDetailTemplate()
             }
+            if let image = appdelegate.getImageFromPath(forunitID: "float-4352"){
+                cellTemplate?.image = image
+            }else{
+                cellTemplate?.image = UIImage(named: "")
+            }
+        }else{
+            detailPlaceTemplateImgView.image = UIImage(named: "")
+            cellTemplate?.image = UIImage(named: "")
         }
-        self.content_tableView.reloadData()
     }
     
 }

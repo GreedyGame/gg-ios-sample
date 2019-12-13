@@ -226,7 +226,6 @@ extension UIView{
     }
     
     
-    
     /// This is use to make the view with padding and fixed size and optional constraints
     ///
     /// - Parameters:
