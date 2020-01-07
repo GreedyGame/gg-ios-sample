@@ -1,8 +1,6 @@
 # gg-ios-sample
 Sample app for implementing the GreedyGame SDK on the iOS platform
 
-Before run this app,
-
 # pod installation
 
 Please open the podfile and uncomment the respective pod
