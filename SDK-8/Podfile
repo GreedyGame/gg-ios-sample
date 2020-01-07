@@ -1,13 +1,19 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '9.0'
 
+source 'https://github.com/GreedyGame/cocoapod-folio.git'  
+
 target 'GreedyGamesSampleSDK8' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for GreedyGamesSampleSDK8
   pod 'Instructions', '~> 1.2.0'
- pod ‘GreedyGameSDK’, ‘1.0.4’
-  
+
+  # UnComment the below pod file when you are trying to build with Xcode 10 and 10.1 or use the below one (version 1.0.4.1)
+  # pod ‘GreedyGameSDK’, ‘1.0.4’
+
+  # UnComment the below pod file when you are trying to build with Xcode 10.2 and 10.2.1
+  # pod ‘GreedyGameSDK’, ‘1.0.4.1’
  
 end
